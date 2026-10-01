@@ -1,0 +1,6 @@
+[submodule "openfx-datagen"]
+	path = openfx-datagen
+	url = https://github.com/kreantio/openfx-datagen
+[submodule "openfx"]
+	path = openfx
+	url = https://github.com/AcademySoftwareFoundation/openfx
