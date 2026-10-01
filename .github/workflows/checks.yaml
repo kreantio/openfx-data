@@ -49,8 +49,10 @@ jobs:
       - name: Detect stale generated contents
         run: just detect-stale-generated-contents
 
-      - name: Validate generated contents against defined schemata
-        uses: dsanders11/json-schema-validate-action@v2.0.0
+      - uses: taiki-e/install-action@v2
         with:
-          schema: ./openfx-datagen/schemata/generated/bindings.current.schema.json
-          files: ./data/generated/bindings/*.json
+          tool: jsonschema-cli
+
+      # dsanders11/json-schema-validate-action@v2.0.0: `Error: unknown format "uint32" ignored in schema at path "#/oneOf/1/properties/value"`
+      - name: Validate generated contents against defined schemata
+        run: jsonschema-cli validate ./openfx-datagen/schemata/generated/bindings.current.schema.json -i ./data/generated/bindings/*.json
