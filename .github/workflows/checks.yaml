@@ -1,0 +1,58 @@
+# Some code below is copied/derived from <https://github.com/emilk/egui/blob/6b420bc1b11cd4f37d5db6b5e0a2e369f259dd35/.github/workflows/rust.yml>.
+# See ATTRIBUTION.md for attribution details.
+
+name: Checks
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+jobs:
+  checks:
+    name: Checks
+    permissions:
+      contents: read
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          submodules: true
+
+      - name: Check whether the submodule `openfx` is on main or an ancestor of main
+        uses: jtmullen/submodule-branch-check-action@v1
+        with:
+          path: openfx
+          branch: main
+          first_parent: true
+          disable_progression: true
+
+      - name: Check whether the submodule `openfx-datagen` is on main or an ancestor of main
+        if: always()
+        uses: jtmullen/submodule-branch-check-action@v1
+        with:
+          path: openfx-datagen
+          branch: main
+          first_parent: true
+          disable_progression: true
+
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          toolchain: 1.98.1
+
+      - uses: extractions/setup-just@v4
+
+      - name: Set up cargo cache
+        uses: Swatinem/rust-cache@v2
+
+      - name: Detect stale generated contents
+        run: just detect-stale-generated-contents
+
+      - uses: taiki-e/install-action@v2
+        with:
+          tool: jsonschema-cli
+
+      # dsanders11/json-schema-validate-action@v2.0.0: `Error: unknown format "uint32" ignored in schema at path "#/oneOf/1/properties/value"`
+      - name: Validate generated contents against defined schemata
+        run: jsonschema-cli validate ./openfx-datagen/schemata/generated/bindings.current.schema.json -i ./data/generated/bindings/*.json
