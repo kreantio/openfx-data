@@ -1,0 +1,1 @@
+This repository will be used for storing data generated from [the official OpenFX C headers](https://github.com/AcademySoftwareFoundation/openfx/tree/main/include) with [openfx-datagen](https://github.com/kreantio/openfx-datagen).
