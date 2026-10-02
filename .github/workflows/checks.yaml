@@ -49,9 +49,24 @@ jobs:
       - name: Detect stale generated contents
         run: just detect-stale-generated-contents
 
-      - uses: taiki-e/install-action@v2
-        with:
-          tool: jsonschema-cli
+      # This would unnecessarily build from source:
+      # ```yaml
+      # - uses: taiki-e/install-action@v2
+      #   with:
+      #     tool: jsonschema-cli
+      # ```
+      - name: Download jsonschema-cli pre-built binary
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          mkdir -p "$HOME/.local/bin"
+          echo "$HOME/.local/bin" >> "$GITHUB_PATH"
+          gh release download cli-v0.52.0 \
+            --repo Stranger6667/jsonschema \
+            --pattern "jsonschema-cli-x86_64-unknown-linux-gnu.tar.gz" \
+            --dir "/tmp"
+          tar -xzf /tmp/jsonschema-cli-x86_64-unknown-linux-gnu.tar.gz \
+            -C "$HOME/.local/bin"
 
       # dsanders11/json-schema-validate-action@v2.0.0: `Error: unknown format "uint32" ignored in schema at path "#/oneOf/1/properties/value"`
       - name: Validate generated contents against defined schemata
