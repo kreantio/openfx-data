@@ -64,7 +64,7 @@ jobs:
           gh release download cli-v0.52.0 \
             --repo Stranger6667/jsonschema \
             --pattern "jsonschema-cli-x86_64-unknown-linux-gnu.tar.gz" \
-            --output-dir "/tmp"
+            --dir "/tmp"
           tar -xzf /tmp/jsonschema-cli-x86_64-unknown-linux-gnu.tar.gz \
             -C "$HOME/.local/bin"
 
