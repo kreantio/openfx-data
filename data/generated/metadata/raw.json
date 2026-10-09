@@ -1,0 +1,3409 @@
+{
+  "propdef_map": {
+    "kOfxImageClipPropColourspace": {
+      "type": {
+        "$type": "Simple",
+        "one_of": [
+          "String"
+        ]
+      },
+      "dimension": {
+        "$type": "Fixed",
+        "size": 1
+      },
+      "introduced": "\"1.5\""
+    },
+    "kOfxImageClipPropConnected": {
+      "type": {
+        "$type": "Simple",
+        "one_of": [
+          "Bool"
+        ]
+      },
+      "dimension": {
+        "$type": "Fixed",
+        "size": 1
+      }
+    },
+    "kOfxImageClipPropContinuousSamples": {
+      "type": {
+        "$type": "Simple",
+        "one_of": [
+          "Bool"
+        ]
+      },
+      "dimension": {
+        "$type": "Fixed",
+        "size": 1
+      }
+    },
+    "kOfxImageClipPropFieldExtraction": {
+      "type": {
+        "$type": "StringEnum",
+        "one_of": [
+          {
+            "$type": "Defined",
+            "cname": "kOfxImageFieldNone"
+          },
+          {
+            "$type": "Defined",
+            "cname": "kOfxImageFieldLower"
+          },
+          {
+            "$type": "Defined",
+            "cname": "kOfxImageFieldUpper"
+          },
+          {
+            "$type": "Defined",
+            "cname": "kOfxImageFieldBoth"
+          },
+          {
+            "$type": "Defined",
+            "cname": "kOfxImageFieldSingle"
+          },
+          {
+            "$type": "Defined",
+            "cname": "kOfxImageFieldDoubled"
+          }
+        ]
+      },
+      "dimension": {
+        "$type": "Fixed",
+        "size": 1
+      }
+    },
+    "kOfxImageClipPropFieldOrder": {
+      "type": {
+        "$type": "StringEnum",
+        "one_of": [
+          {
+            "$type": "Defined",
+            "cname": "kOfxImageFieldNone"
+          },
+          {
+            "$type": "Defined",
+            "cname": "kOfxImageFieldLower"
+          },
+          {
+            "$type": "Defined",
+            "cname": "kOfxImageFieldUpper"
+          }
+        ]
+      },
+      "dimension": {
+        "$type": "Fixed",
+        "size": 1
+      }
+    },
+    "kOfxImageClipPropIsMask": {
+      "type": {
+        "$type": "Simple",
+        "one_of": [
+          "Bool"
+        ]
+      },
+      "dimension": {
+        "$type": "Fixed",
+        "size": 1
+      }
+    },
+    "kOfxImageClipPropOptional": {
+      "type": {
+        "$type": "Simple",
+        "one_of": [
+          "Bool"
+        ]
+      },
+      "dimension": {
+        "$type": "Fixed",
+        "size": 1
+      }
+    },
+    "kOfxImageClipPropPreferredColourspaces": {
+      "type": {
+        "$type": "Simple",
+        "one_of": [
+          "String"
+        ]
+      },
+      "dimension": {
+        "$type": "Dynamic"
+      },
+      "introduced": "\"1.5\""
+    },
+    "kOfxImageClipPropUnmappedComponents": {
+      "type": {
+        "$type": "StringEnum",
+        "one_of": [
+          {
+            "$type": "Defined",
+            "cname": "kOfxImageComponentNone"
+          },
+          {
+            "$type": "Defined",
+            "cname": "kOfxImageComponentRGBA"
+          },
+          {
+            "$type": "Defined",
+            "cname": "kOfxImageComponentRGB"
+          },
+          {
+            "$type": "Defined",
+            "cname": "kOfxImageComponentAlpha"
+          }
+        ]
+      },
+      "dimension": {
+        "$type": "Fixed",
+        "size": 1
+      }
+    },
+    "kOfxImageClipPropUnmappedPixelDepth": {
+      "type": {
+        "$type": "StringEnum",
+        "one_of": [
+          {
+            "$type": "Defined",
+            "cname": "kOfxBitDepthNone"
+          },
+          {
+            "$type": "Defined",
+            "cname": "kOfxBitDepthByte"
+          },
+          {
+            "$type": "Defined",
+            "cname": "kOfxBitDepthShort"
+          },
+          {
+            "$type": "Defined",
+            "cname": "kOfxBitDepthHalf"
+          },
+          {
+            "$type": "Defined",
+            "cname": "kOfxBitDepthFloat"
+          }
+        ]
+      },
+      "dimension": {
+        "$type": "Fixed",
+        "size": 1
+      }
+    },
+    "kOfxImageEffectFrameVarying": {
+      "type": {
+        "$type": "Simple",
+        "one_of": [
+          "Bool"
+        ]
+      },
+      "dimension": {
+        "$type": "Fixed",
+        "size": 1
+      }
+    },
+    "kOfxImageEffectHostPropIsBackground": {
+      "type": {
+        "$type": "Simple",
+        "one_of": [
+          "Bool"
+        ]
+      },
+      "dimension": {
+        "$type": "Fixed",
+        "size": 1
+      }
+    },
+    "kOfxImageEffectHostPropNativeOrigin": {
+      "type": {
+        "$type": "StringEnum",
+        "one_of": [
+          {
+            "$type": "Defined",
+            "cname": "kOfxHostNativeOriginBottomLeft"
+          },
+          {
+            "$type": "Defined",
+            "cname": "kOfxHostNativeOriginTopLeft"
+          },
+          {
+            "$type": "Defined",
+            "cname": "kOfxHostNativeOriginCenter"
+          }
+        ]
+      },
+      "dimension": {
+        "$type": "Fixed",
+        "size": 1
+      }
+    },
+    "kOfxImageEffectInstancePropEffectDuration": {
+      "type": {
+        "$type": "Simple",
+        "one_of": [
+          "Double"
+        ]
+      },
+      "dimension": {
+        "$type": "Fixed",
+        "size": 1
+      }
+    },
+    "kOfxImageEffectInstancePropSequentialRender": {
+      "type": {
+        "$type": "Simple",
+        "one_of": [
+          "Bool"
+        ]
+      },
+      "dimension": {
+        "$type": "Fixed",
+        "size": 1
+      }
+    },
+    "kOfxImageEffectPluginPropFieldRenderTwiceAlways": {
+      "type": {
+        "$type": "Simple",
+        "one_of": [
+          "Bool"
+        ]
+      },
+      "dimension": {
+        "$type": "Fixed",
+        "size": 1
+      }
+    },
+    "kOfxImageEffectPluginPropGrouping": {
+      "type": {
+        "$type": "Simple",
+        "one_of": [
+          "String"
+        ]
+      },
+      "dimension": {
+        "$type": "Fixed",
+        "size": 1
+      }
+    },
+    "kOfxImageEffectPluginPropHostFrameThreading": {
+      "type": {
+        "$type": "Simple",
+        "one_of": [
+          "Bool"
+        ]
+      },
+      "dimension": {
+        "$type": "Fixed",
+        "size": 1
+      }
+    },
+    "kOfxImageEffectPluginPropObsolete": {
+      "type": {
+        "$type": "Simple",
+        "one_of": [
+          "Bool"
+        ]
+      },
+      "dimension": {
+        "$type": "Fixed",
+        "size": 1
+      }
+    },
+    "kOfxImageEffectPluginPropOverlayInteractV1": {
+      "type": {
+        "$type": "Simple",
+        "one_of": [
+          "Pointer"
+        ]
+      },
+      "dimension": {
+        "$type": "Fixed",
+        "size": 1
+      }
+    },
+    "kOfxImageEffectPluginPropOverlayInteractV2": {
+      "type": {
+        "$type": "Simple",
+        "one_of": [
+          "Pointer"
+        ]
+      },
+      "dimension": {
+        "$type": "Fixed",
+        "size": 1
+      }
+    },
+    "kOfxImageEffectPluginPropSingleInstance": {
+      "type": {
+        "$type": "Simple",
+        "one_of": [
+          "Bool"
+        ]
+      },
+      "dimension": {
+        "$type": "Fixed",
+        "size": 1
+      }
+    },
+    "kOfxImageEffectPluginRenderThreadSafety": {
+      "type": {
+        "$type": "StringEnum",
+        "one_of": [
+          {
+            "$type": "Defined",
+            "cname": "kOfxImageEffectRenderUnsafe"
+          },
+          {
+            "$type": "Defined",
+            "cname": "kOfxImageEffectRenderInstanceSafe"
+          },
+          {
+            "$type": "Defined",
+            "cname": "kOfxImageEffectRenderFullySafe"
+          }
+        ]
+      },
+      "dimension": {
+        "$type": "Fixed",
+        "size": 1
+      }
+    },
+    "kOfxImageEffectPropCPURenderSupported": {
+      "type": {
+        "$type": "StringEnum",
+        "one_of": [
+          {
+            "$type": "Literal",
+            "value": "false"
+          },
+          {
+            "$type": "Literal",
+            "value": "true"
+          }
+        ]
+      },
+      "dimension": {
+        "$type": "Fixed",
+        "size": 1
+      },
+      "introduced": "\"1.5.1\""
+    },
+    "kOfxImageEffectPropClipPreferencesSlaveParam": {
+      "type": {
+        "$type": "Simple",
+        "one_of": [
+          "String"
+        ]
+      },
+      "dimension": {
+        "$type": "Dynamic"
+      }
+    },
+    "kOfxImageEffectPropColourManagementAvailableConfigs": {
+      "type": {
+        "$type": "Simple",
+        "one_of": [
+          "String"
+        ]
+      },
+      "dimension": {
+        "$type": "Dynamic"
+      },
+      "introduced": "\"1.5\""
+    },
+    "kOfxImageEffectPropColourManagementConfig": {
+      "type": {
+        "$type": "Simple",
+        "one_of": [
+          "String"
+        ]
+      },
+      "dimension": {
+        "$type": "Fixed",
+        "size": 1
+      },
+      "introduced": "\"1.5\""
+    },
+    "kOfxImageEffectPropColourManagementStyle": {
+      "type": {
+        "$type": "StringEnum",
+        "one_of": [
+          {
+            "$type": "Defined",
+            "cname": "kOfxImageEffectColourManagementNone"
+          },
+          {
+            "$type": "Defined",
+            "cname": "kOfxImageEffectColourManagementBasic"
+          },
+          {
+            "$type": "Defined",
+            "cname": "kOfxImageEffectColourManagementCore"
+          },
+          {
+            "$type": "Defined",
+            "cname": "kOfxImageEffectColourManagementFull"
+          },
+          {
+            "$type": "Defined",
+            "cname": "kOfxImageEffectColourManagementOCIO"
+          }
+        ]
+      },
+      "dimension": {
+        "$type": "Fixed",
+        "size": 1
+      },
+      "introduced": "\"1.5\""
+    },
+    "kOfxImageEffectPropComponents": {
+      "type": {
+        "$type": "StringEnum",
+        "one_of": [
+          {
+            "$type": "Defined",
+            "cname": "kOfxImageComponentNone"
+          },
+          {
+            "$type": "Defined",
+            "cname": "kOfxImageComponentRGBA"
+          },
+          {
+            "$type": "Defined",
+            "cname": "kOfxImageComponentRGB"
+          },
+          {
+            "$type": "Defined",
+            "cname": "kOfxImageComponentAlpha"
+          }
+        ]
+      },
+      "dimension": {
+        "$type": "Fixed",
+        "size": 1
+      }
+    },
+    "kOfxImageEffectPropContext": {
+      "type": {
+        "$type": "StringEnum",
+        "one_of": [
+          {
+            "$type": "Defined",
+            "cname": "kOfxImageEffectContextGenerator"
+          },
+          {
+            "$type": "Defined",
+            "cname": "kOfxImageEffectContextFilter"
+          },
+          {
+            "$type": "Defined",
+            "cname": "kOfxImageEffectContextTransition"
+          },
+          {
+            "$type": "Defined",
+            "cname": "kOfxImageEffectContextPaint"
+          },
+          {
+            "$type": "Defined",
+            "cname": "kOfxImageEffectContextGeneral"
+          },
+          {
+            "$type": "Defined",
+            "cname": "kOfxImageEffectContextRetimer"
+          }
+        ]
+      },
+      "dimension": {
+        "$type": "Fixed",
+        "size": 1
+      }
+    },
+    "kOfxImageEffectPropCudaEnabled": {
+      "type": {
+        "$type": "Simple",
+        "one_of": [
+          "Bool"
+        ]
+      },
+      "dimension": {
+        "$type": "Fixed",
+        "size": 1
+      }
+    },
+    "kOfxImageEffectPropCudaRenderSupported": {
+      "type": {
+        "$type": "StringEnum",
+        "one_of": [
+          {
+            "$type": "Literal",
+            "value": "false"
+          },
+          {
+            "$type": "Literal",
+            "value": "true"
+          },
+          {
+            "$type": "Literal",
+            "value": "needed"
+          }
+        ]
+      },
+      "dimension": {
+        "$type": "Fixed",
+        "size": 1
+      }
+    },
+    "kOfxImageEffectPropCudaStream": {
+      "type": {
+        "$type": "Simple",
+        "one_of": [
+          "Pointer"
+        ]
+      },
+      "dimension": {
+        "$type": "Fixed",
+        "size": 1
+      }
+    },
+    "kOfxImageEffectPropCudaStreamSupported": {
+      "type": {
+        "$type": "StringEnum",
+        "one_of": [
+          {
+            "$type": "Literal",
+            "value": "false"
+          },
+          {
+            "$type": "Literal",
+            "value": "true"
+          },
+          {
+            "$type": "Literal",
+            "value": "needed"
+          }
+        ]
+      },
+      "dimension": {
+        "$type": "Fixed",
+        "size": 1
+      }
+    },
+    "kOfxImageEffectPropDisplayColourspace": {
+      "type": {
+        "$type": "Simple",
+        "one_of": [
+          "String"
+        ]
+      },
+      "dimension": {
+        "$type": "Fixed",
+        "size": 1
+      },
+      "introduced": "\"1.5\""
+    },
+    "kOfxImageEffectPropFieldToRender": {
+      "type": {
+        "$type": "StringEnum",
+        "one_of": [
+          {
+            "$type": "Defined",
+            "cname": "kOfxImageFieldNone"
+          },
+          {
+            "$type": "Defined",
+            "cname": "kOfxImageFieldBoth"
+          },
+          {
+            "$type": "Defined",
+            "cname": "kOfxImageFieldLower"
+          },
+          {
+            "$type": "Defined",
+            "cname": "kOfxImageFieldUpper"
+          }
+        ]
+      },
+      "dimension": {
+        "$type": "Fixed",
+        "size": 1
+      }
+    },
+    "kOfxImageEffectPropFrameRange": {
+      "type": {
+        "$type": "Simple",
+        "one_of": [
+          "Double"
+        ]
+      },
+      "dimension": {
+        "$type": "Fixed",
+        "size": 2
+      }
+    },
+    "kOfxImageEffectPropFrameRate": {
+      "type": {
+        "$type": "Simple",
+        "one_of": [
+          "Double"
+        ]
+      },
+      "dimension": {
+        "$type": "Fixed",
+        "size": 1
+      }
+    },
+    "kOfxImageEffectPropFrameStep": {
+      "type": {
+        "$type": "Simple",
+        "one_of": [
+          "Double"
+        ]
+      },
+      "dimension": {
+        "$type": "Fixed",
+        "size": 1
+      }
+    },
+    "kOfxImageEffectPropInAnalysis": {
+      "type": {
+        "$type": "Simple",
+        "one_of": [
+          "Bool"
+        ]
+      },
+      "dimension": {
+        "$type": "Fixed",
+        "size": 1
+      },
+      "deprecated": "\"1.4\""
+    },
+    "kOfxImageEffectPropInteractiveRenderStatus": {
+      "type": {
+        "$type": "Simple",
+        "one_of": [
+          "Bool"
+        ]
+      },
+      "dimension": {
+        "$type": "Fixed",
+        "size": 1
+      }
+    },
+    "kOfxImageEffectPropMetalCommandQueue": {
+      "type": {
+        "$type": "Simple",
+        "one_of": [
+          "Pointer"
+        ]
+      },
+      "dimension": {
+        "$type": "Fixed",
+        "size": 1
+      },
+      "introduced": "\"1.5\""
+    },
+    "kOfxImageEffectPropMetalEnabled": {
+      "type": {
+        "$type": "Simple",
+        "one_of": [
+          "Bool"
+        ]
+      },
+      "dimension": {
+        "$type": "Fixed",
+        "size": 1
+      },
+      "introduced": "\"1.5\""
+    },
+    "kOfxImageEffectPropMetalRenderSupported": {
+      "type": {
+        "$type": "StringEnum",
+        "one_of": [
+          {
+            "$type": "Literal",
+            "value": "false"
+          },
+          {
+            "$type": "Literal",
+            "value": "true"
+          },
+          {
+            "$type": "Literal",
+            "value": "needed"
+          }
+        ]
+      },
+      "dimension": {
+        "$type": "Fixed",
+        "size": 1
+      },
+      "introduced": "\"1.5\""
+    },
+    "kOfxImageEffectPropNoSpatialAwareness": {
+      "type": {
+        "$type": "StringEnum",
+        "one_of": [
+          {
+            "$type": "Literal",
+            "value": "false"
+          },
+          {
+            "$type": "Literal",
+            "value": "true"
+          }
+        ]
+      },
+      "dimension": {
+        "$type": "Fixed",
+        "size": 1
+      }
+    },
+    "kOfxImageEffectPropOCIOConfig": {
+      "type": {
+        "$type": "Simple",
+        "one_of": [
+          "String"
+        ]
+      },
+      "dimension": {
+        "$type": "Fixed",
+        "size": 1
+      },
+      "introduced": "\"1.5\""
+    },
+    "kOfxImageEffectPropOCIODisplay": {
+      "type": {
+        "$type": "Simple",
+        "one_of": [
+          "String"
+        ]
+      },
+      "dimension": {
+        "$type": "Fixed",
+        "size": 1
+      },
+      "introduced": "\"1.5\""
+    },
+    "kOfxImageEffectPropOCIOView": {
+      "type": {
+        "$type": "Simple",
+        "one_of": [
+          "String"
+        ]
+      },
+      "dimension": {
+        "$type": "Fixed",
+        "size": 1
+      },
+      "introduced": "\"1.5\""
+    },
+    "kOfxImageEffectPropOpenCLCommandQueue": {
+      "type": {
+        "$type": "Simple",
+        "one_of": [
+          "Pointer"
+        ]
+      },
+      "dimension": {
+        "$type": "Fixed",
+        "size": 1
+      },
+      "introduced": "\"1.5\""
+    },
+    "kOfxImageEffectPropOpenCLEnabled": {
+      "type": {
+        "$type": "Simple",
+        "one_of": [
+          "Bool"
+        ]
+      },
+      "dimension": {
+        "$type": "Fixed",
+        "size": 1
+      },
+      "introduced": "\"1.5\""
+    },
+    "kOfxImageEffectPropOpenCLImage": {
+      "type": {
+        "$type": "Simple",
+        "one_of": [
+          "Pointer"
+        ]
+      },
+      "dimension": {
+        "$type": "Fixed",
+        "size": 1
+      },
+      "introduced": "\"1.5\""
+    },
+    "kOfxImageEffectPropOpenCLRenderSupported": {
+      "type": {
+        "$type": "StringEnum",
+        "one_of": [
+          {
+            "$type": "Literal",
+            "value": "false"
+          },
+          {
+            "$type": "Literal",
+            "value": "true"
+          },
+          {
+            "$type": "Literal",
+            "value": "needed"
+          }
+        ]
+      },
+      "dimension": {
+        "$type": "Fixed",
+        "size": 1
+      },
+      "introduced": "\"1.5\""
+    },
+    "kOfxImageEffectPropOpenCLSupported": {
+      "type": {
+        "$type": "StringEnum",
+        "one_of": [
+          {
+            "$type": "Literal",
+            "value": "false"
+          },
+          {
+            "$type": "Literal",
+            "value": "true"
+          }
+        ]
+      },
+      "dimension": {
+        "$type": "Fixed",
+        "size": 1
+      },
+      "introduced": "\"1.5\""
+    },
+    "kOfxImageEffectPropOpenGLEnabled": {
+      "type": {
+        "$type": "Simple",
+        "one_of": [
+          "Bool"
+        ]
+      },
+      "dimension": {
+        "$type": "Fixed",
+        "size": 1
+      }
+    },
+    "kOfxImageEffectPropOpenGLRenderSupported": {
+      "type": {
+        "$type": "StringEnum",
+        "one_of": [
+          {
+            "$type": "Literal",
+            "value": "false"
+          },
+          {
+            "$type": "Literal",
+            "value": "true"
+          },
+          {
+            "$type": "Literal",
+            "value": "needed"
+          }
+        ]
+      },
+      "dimension": {
+        "$type": "Fixed",
+        "size": 1
+      }
+    },
+    "kOfxImageEffectPropOpenGLTextureIndex": {
+      "type": {
+        "$type": "Simple",
+        "one_of": [
+          "Int"
+        ]
+      },
+      "dimension": {
+        "$type": "Fixed",
+        "size": 1
+      }
+    },
+    "kOfxImageEffectPropOpenGLTextureTarget": {
+      "type": {
+        "$type": "Simple",
+        "one_of": [
+          "Int"
+        ]
+      },
+      "dimension": {
+        "$type": "Fixed",
+        "size": 1
+      }
+    },
+    "kOfxImageEffectPropPixelDepth": {
+      "type": {
+        "$type": "StringEnum",
+        "one_of": [
+          {
+            "$type": "Defined",
+            "cname": "kOfxBitDepthNone"
+          },
+          {
+            "$type": "Defined",
+            "cname": "kOfxBitDepthByte"
+          },
+          {
+            "$type": "Defined",
+            "cname": "kOfxBitDepthShort"
+          },
+          {
+            "$type": "Defined",
+            "cname": "kOfxBitDepthHalf"
+          },
+          {
+            "$type": "Defined",
+            "cname": "kOfxBitDepthFloat"
+          }
+        ]
+      },
+      "dimension": {
+        "$type": "Fixed",
+        "size": 1
+      }
+    },
+    "kOfxImageEffectPropPluginHandle": {
+      "type": {
+        "$type": "Simple",
+        "one_of": [
+          "Pointer"
+        ]
+      },
+      "dimension": {
+        "$type": "Fixed",
+        "size": 1
+      }
+    },
+    "kOfxImageEffectPropPreMultiplication": {
+      "type": {
+        "$type": "StringEnum",
+        "one_of": [
+          {
+            "$type": "Defined",
+            "cname": "kOfxImageOpaque"
+          },
+          {
+            "$type": "Defined",
+            "cname": "kOfxImagePreMultiplied"
+          },
+          {
+            "$type": "Defined",
+            "cname": "kOfxImageUnPreMultiplied"
+          }
+        ]
+      },
+      "dimension": {
+        "$type": "Fixed",
+        "size": 1
+      }
+    },
+    "kOfxImageEffectPropProjectExtent": {
+      "type": {
+        "$type": "Simple",
+        "one_of": [
+          "Double"
+        ]
+      },
+      "dimension": {
+        "$type": "Fixed",
+        "size": 2
+      }
+    },
+    "kOfxImageEffectPropProjectOffset": {
+      "type": {
+        "$type": "Simple",
+        "one_of": [
+          "Double"
+        ]
+      },
+      "dimension": {
+        "$type": "Fixed",
+        "size": 2
+      }
+    },
+    "kOfxImageEffectPropProjectPixelAspectRatio": {
+      "type": {
+        "$type": "Simple",
+        "one_of": [
+          "Double"
+        ]
+      },
+      "dimension": {
+        "$type": "Fixed",
+        "size": 1
+      },
+      "cname": "kOfxImageEffectPropProjectPixelAspectRatio"
+    },
+    "kOfxImageEffectPropProjectSize": {
+      "type": {
+        "$type": "Simple",
+        "one_of": [
+          "Double"
+        ]
+      },
+      "dimension": {
+        "$type": "Fixed",
+        "size": 2
+      }
+    },
+    "kOfxImageEffectPropRegionOfDefinition": {
+      "type": {
+        "$type": "Simple",
+        "one_of": [
+          "Double"
+        ]
+      },
+      "dimension": {
+        "$type": "Fixed",
+        "size": 4
+      }
+    },
+    "kOfxImageEffectPropRegionOfInterest": {
+      "type": {
+        "$type": "Simple",
+        "one_of": [
+          "Double"
+        ]
+      },
+      "dimension": {
+        "$type": "Fixed",
+        "size": 4
+      }
+    },
+    "kOfxImageEffectPropRenderQualityDraft": {
+      "type": {
+        "$type": "Simple",
+        "one_of": [
+          "Bool"
+        ]
+      },
+      "dimension": {
+        "$type": "Fixed",
+        "size": 1
+      }
+    },
+    "kOfxImageEffectPropRenderScale": {
+      "type": {
+        "$type": "Simple",
+        "one_of": [
+          "Double"
+        ]
+      },
+      "dimension": {
+        "$type": "Fixed",
+        "size": 2
+      }
+    },
+    "kOfxImageEffectPropRenderWindow": {
+      "type": {
+        "$type": "Simple",
+        "one_of": [
+          "Int"
+        ]
+      },
+      "dimension": {
+        "$type": "Fixed",
+        "size": 4
+      }
+    },
+    "kOfxImageEffectPropSequentialRenderStatus": {
+      "type": {
+        "$type": "Simple",
+        "one_of": [
+          "Bool"
+        ]
+      },
+      "dimension": {
+        "$type": "Fixed",
+        "size": 1
+      }
+    },
+    "kOfxImageEffectPropSetableFielding": {
+      "type": {
+        "$type": "Simple",
+        "one_of": [
+          "Bool"
+        ]
+      },
+      "dimension": {
+        "$type": "Fixed",
+        "size": 1
+      }
+    },
+    "kOfxImageEffectPropSetableFrameRate": {
+      "type": {
+        "$type": "Simple",
+        "one_of": [
+          "Bool"
+        ]
+      },
+      "dimension": {
+        "$type": "Fixed",
+        "size": 1
+      }
+    },
+    "kOfxImageEffectPropSupportedComponents": {
+      "type": {
+        "$type": "StringEnum",
+        "one_of": [
+          {
+            "$type": "Defined",
+            "cname": "kOfxImageComponentNone"
+          },
+          {
+            "$type": "Defined",
+            "cname": "kOfxImageComponentRGBA"
+          },
+          {
+            "$type": "Defined",
+            "cname": "kOfxImageComponentRGB"
+          },
+          {
+            "$type": "Defined",
+            "cname": "kOfxImageComponentAlpha"
+          }
+        ]
+      },
+      "dimension": {
+        "$type": "Dynamic"
+      }
+    },
+    "kOfxImageEffectPropSupportedContexts": {
+      "type": {
+        "$type": "StringEnum",
+        "one_of": [
+          {
+            "$type": "Defined",
+            "cname": "kOfxImageEffectContextGenerator"
+          },
+          {
+            "$type": "Defined",
+            "cname": "kOfxImageEffectContextFilter"
+          },
+          {
+            "$type": "Defined",
+            "cname": "kOfxImageEffectContextTransition"
+          },
+          {
+            "$type": "Defined",
+            "cname": "kOfxImageEffectContextPaint"
+          },
+          {
+            "$type": "Defined",
+            "cname": "kOfxImageEffectContextGeneral"
+          },
+          {
+            "$type": "Defined",
+            "cname": "kOfxImageEffectContextRetimer"
+          }
+        ]
+      },
+      "dimension": {
+        "$type": "Dynamic"
+      }
+    },
+    "kOfxImageEffectPropSupportedPixelDepths": {
+      "type": {
+        "$type": "StringEnum",
+        "one_of": [
+          {
+            "$type": "Defined",
+            "cname": "kOfxBitDepthNone"
+          },
+          {
+            "$type": "Defined",
+            "cname": "kOfxBitDepthByte"
+          },
+          {
+            "$type": "Defined",
+            "cname": "kOfxBitDepthShort"
+          },
+          {
+            "$type": "Defined",
+            "cname": "kOfxBitDepthHalf"
+          },
+          {
+            "$type": "Defined",
+            "cname": "kOfxBitDepthFloat"
+          }
+        ]
+      },
+      "dimension": {
+        "$type": "Dynamic"
+      }
+    },
+    "kOfxImageEffectPropSupportsMultiResolution": {
+      "type": {
+        "$type": "Simple",
+        "one_of": [
+          "Bool"
+        ]
+      },
+      "dimension": {
+        "$type": "Fixed",
+        "size": 1
+      }
+    },
+    "kOfxImageEffectPropSupportsMultipleClipDepths": {
+      "type": {
+        "$type": "Simple",
+        "one_of": [
+          "Bool"
+        ]
+      },
+      "dimension": {
+        "$type": "Fixed",
+        "size": 1
+      },
+      "cname": "kOfxImageEffectPropSupportsMultipleClipDepths"
+    },
+    "kOfxImageEffectPropSupportsMultipleClipPARs": {
+      "type": {
+        "$type": "Simple",
+        "one_of": [
+          "Bool"
+        ]
+      },
+      "dimension": {
+        "$type": "Fixed",
+        "size": 1
+      }
+    },
+    "kOfxImageEffectPropSupportsOverlays": {
+      "type": {
+        "$type": "Simple",
+        "one_of": [
+          "Bool"
+        ]
+      },
+      "dimension": {
+        "$type": "Fixed",
+        "size": 1
+      }
+    },
+    "kOfxImageEffectPropSupportsTiles": {
+      "type": {
+        "$type": "Simple",
+        "one_of": [
+          "Bool"
+        ]
+      },
+      "dimension": {
+        "$type": "Fixed",
+        "size": 1
+      }
+    },
+    "kOfxImageEffectPropTemporalClipAccess": {
+      "type": {
+        "$type": "Simple",
+        "one_of": [
+          "Bool"
+        ]
+      },
+      "dimension": {
+        "$type": "Fixed",
+        "size": 1
+      }
+    },
+    "kOfxImageEffectPropThumbnailRender": {
+      "type": {
+        "$type": "StringEnum",
+        "one_of": [
+          {
+            "$type": "Literal",
+            "value": "false"
+          },
+          {
+            "$type": "Literal",
+            "value": "true"
+          }
+        ]
+      },
+      "dimension": {
+        "$type": "Fixed",
+        "size": 1
+      },
+      "introduced": "\"1.5.1\""
+    },
+    "kOfxImageEffectPropUnmappedFrameRange": {
+      "type": {
+        "$type": "Simple",
+        "one_of": [
+          "Double"
+        ]
+      },
+      "dimension": {
+        "$type": "Fixed",
+        "size": 2
+      }
+    },
+    "kOfxImageEffectPropUnmappedFrameRate": {
+      "type": {
+        "$type": "Simple",
+        "one_of": [
+          "Double"
+        ]
+      },
+      "dimension": {
+        "$type": "Fixed",
+        "size": 1
+      }
+    },
+    "kOfxImagePropBounds": {
+      "type": {
+        "$type": "Simple",
+        "one_of": [
+          "Int"
+        ]
+      },
+      "dimension": {
+        "$type": "Fixed",
+        "size": 4
+      }
+    },
+    "kOfxImagePropData": {
+      "type": {
+        "$type": "Simple",
+        "one_of": [
+          "Pointer"
+        ]
+      },
+      "dimension": {
+        "$type": "Fixed",
+        "size": 1
+      }
+    },
+    "kOfxImagePropField": {
+      "type": {
+        "$type": "StringEnum",
+        "one_of": [
+          {
+            "$type": "Defined",
+            "cname": "kOfxImageFieldNone"
+          },
+          {
+            "$type": "Defined",
+            "cname": "kOfxImageFieldBoth"
+          },
+          {
+            "$type": "Defined",
+            "cname": "kOfxImageFieldLower"
+          },
+          {
+            "$type": "Defined",
+            "cname": "kOfxImageFieldUpper"
+          }
+        ]
+      },
+      "dimension": {
+        "$type": "Fixed",
+        "size": 1
+      }
+    },
+    "kOfxImagePropPixelAspectRatio": {
+      "type": {
+        "$type": "Simple",
+        "one_of": [
+          "Double"
+        ]
+      },
+      "dimension": {
+        "$type": "Fixed",
+        "size": 1
+      }
+    },
+    "kOfxImagePropRegionOfDefinition": {
+      "type": {
+        "$type": "Simple",
+        "one_of": [
+          "Int"
+        ]
+      },
+      "dimension": {
+        "$type": "Fixed",
+        "size": 4
+      }
+    },
+    "kOfxImagePropRowBytes": {
+      "type": {
+        "$type": "Simple",
+        "one_of": [
+          "Int"
+        ]
+      },
+      "dimension": {
+        "$type": "Fixed",
+        "size": 1
+      }
+    },
+    "kOfxImagePropUniqueIdentifier": {
+      "type": {
+        "$type": "Simple",
+        "one_of": [
+          "String"
+        ]
+      },
+      "dimension": {
+        "$type": "Fixed",
+        "size": 1
+      }
+    },
+    "kOfxInteractPropBackgroundColour": {
+      "type": {
+        "$type": "Simple",
+        "one_of": [
+          "Double"
+        ]
+      },
+      "dimension": {
+        "$type": "Fixed",
+        "size": 3
+      }
+    },
+    "kOfxInteractPropBitDepth": {
+      "type": {
+        "$type": "Simple",
+        "one_of": [
+          "Int"
+        ]
+      },
+      "dimension": {
+        "$type": "Fixed",
+        "size": 1
+      }
+    },
+    "kOfxInteractPropDrawContext": {
+      "type": {
+        "$type": "Simple",
+        "one_of": [
+          "Pointer"
+        ]
+      },
+      "dimension": {
+        "$type": "Fixed",
+        "size": 1
+      }
+    },
+    "kOfxInteractPropHasAlpha": {
+      "type": {
+        "$type": "Simple",
+        "one_of": [
+          "Bool"
+        ]
+      },
+      "dimension": {
+        "$type": "Fixed",
+        "size": 1
+      }
+    },
+    "kOfxInteractPropPenPosition": {
+      "type": {
+        "$type": "Simple",
+        "one_of": [
+          "Double"
+        ]
+      },
+      "dimension": {
+        "$type": "Fixed",
+        "size": 2
+      }
+    },
+    "kOfxInteractPropPenPressure": {
+      "type": {
+        "$type": "Simple",
+        "one_of": [
+          "Double"
+        ]
+      },
+      "dimension": {
+        "$type": "Fixed",
+        "size": 1
+      }
+    },
+    "kOfxInteractPropPenViewportPosition": {
+      "type": {
+        "$type": "Simple",
+        "one_of": [
+          "Int"
+        ]
+      },
+      "dimension": {
+        "$type": "Fixed",
+        "size": 2
+      }
+    },
+    "kOfxInteractPropPixelScale": {
+      "type": {
+        "$type": "Simple",
+        "one_of": [
+          "Double"
+        ]
+      },
+      "dimension": {
+        "$type": "Fixed",
+        "size": 2
+      }
+    },
+    "kOfxInteractPropSlaveToParam": {
+      "type": {
+        "$type": "Simple",
+        "one_of": [
+          "String"
+        ]
+      },
+      "dimension": {
+        "$type": "Dynamic"
+      }
+    },
+    "kOfxInteractPropSuggestedColour": {
+      "type": {
+        "$type": "Simple",
+        "one_of": [
+          "Double"
+        ]
+      },
+      "dimension": {
+        "$type": "Fixed",
+        "size": 3
+      }
+    },
+    "kOfxInteractPropViewportSize": {
+      "type": {
+        "$type": "Simple",
+        "one_of": [
+          "Int"
+        ]
+      },
+      "dimension": {
+        "$type": "Fixed",
+        "size": 2
+      },
+      "deprecated": "\"1.3\"",
+      "cname": "kOfxInteractPropViewportSize"
+    },
+    "kOfxOpenGLPropPixelDepth": {
+      "type": {
+        "$type": "StringEnum",
+        "one_of": [
+          {
+            "$type": "Defined",
+            "cname": "kOfxBitDepthNone"
+          },
+          {
+            "$type": "Defined",
+            "cname": "kOfxBitDepthByte"
+          },
+          {
+            "$type": "Defined",
+            "cname": "kOfxBitDepthShort"
+          },
+          {
+            "$type": "Defined",
+            "cname": "kOfxBitDepthHalf"
+          },
+          {
+            "$type": "Defined",
+            "cname": "kOfxBitDepthFloat"
+          }
+        ]
+      },
+      "dimension": {
+        "$type": "Dynamic"
+      }
+    },
+    "kOfxParamHostPropMaxPages": {
+      "type": {
+        "$type": "Simple",
+        "one_of": [
+          "Int"
+        ]
+      },
+      "dimension": {
+        "$type": "Fixed",
+        "size": 1
+      }
+    },
+    "kOfxParamHostPropMaxParameters": {
+      "type": {
+        "$type": "Simple",
+        "one_of": [
+          "Int"
+        ]
+      },
+      "dimension": {
+        "$type": "Fixed",
+        "size": 1
+      }
+    },
+    "kOfxParamHostPropPageRowColumnCount": {
+      "type": {
+        "$type": "Simple",
+        "one_of": [
+          "Int"
+        ]
+      },
+      "dimension": {
+        "$type": "Fixed",
+        "size": 2
+      }
+    },
+    "kOfxParamHostPropSupportsBooleanAnimation": {
+      "type": {
+        "$type": "Simple",
+        "one_of": [
+          "Bool"
+        ]
+      },
+      "dimension": {
+        "$type": "Fixed",
+        "size": 1
+      }
+    },
+    "kOfxParamHostPropSupportsChoiceAnimation": {
+      "type": {
+        "$type": "Simple",
+        "one_of": [
+          "Bool"
+        ]
+      },
+      "dimension": {
+        "$type": "Fixed",
+        "size": 1
+      }
+    },
+    "kOfxParamHostPropSupportsCustomAnimation": {
+      "type": {
+        "$type": "Simple",
+        "one_of": [
+          "Bool"
+        ]
+      },
+      "dimension": {
+        "$type": "Fixed",
+        "size": 1
+      }
+    },
+    "kOfxParamHostPropSupportsCustomInteract": {
+      "type": {
+        "$type": "Simple",
+        "one_of": [
+          "Bool"
+        ]
+      },
+      "dimension": {
+        "$type": "Fixed",
+        "size": 1
+      }
+    },
+    "kOfxParamHostPropSupportsParametricAnimation": {
+      "type": {
+        "$type": "Simple",
+        "one_of": [
+          "Bool"
+        ]
+      },
+      "dimension": {
+        "$type": "Fixed",
+        "size": 1
+      }
+    },
+    "kOfxParamHostPropSupportsStrChoice": {
+      "type": {
+        "$type": "Simple",
+        "one_of": [
+          "Bool"
+        ]
+      },
+      "dimension": {
+        "$type": "Fixed",
+        "size": 1
+      },
+      "introduced": "\"1.5\""
+    },
+    "kOfxParamHostPropSupportsStrChoiceAnimation": {
+      "type": {
+        "$type": "Simple",
+        "one_of": [
+          "Bool"
+        ]
+      },
+      "dimension": {
+        "$type": "Fixed",
+        "size": 1
+      },
+      "introduced": "\"1.5\""
+    },
+    "kOfxParamHostPropSupportsStringAnimation": {
+      "type": {
+        "$type": "Simple",
+        "one_of": [
+          "Bool"
+        ]
+      },
+      "dimension": {
+        "$type": "Fixed",
+        "size": 1
+      }
+    },
+    "kOfxParamPropAnimates": {
+      "type": {
+        "$type": "Simple",
+        "one_of": [
+          "Bool"
+        ]
+      },
+      "dimension": {
+        "$type": "Fixed",
+        "size": 1
+      }
+    },
+    "kOfxParamPropCacheInvalidation": {
+      "type": {
+        "$type": "StringEnum",
+        "one_of": [
+          {
+            "$type": "Defined",
+            "cname": "kOfxParamInvalidateValueChange"
+          },
+          {
+            "$type": "Defined",
+            "cname": "kOfxParamInvalidateValueChangeToEnd"
+          },
+          {
+            "$type": "Defined",
+            "cname": "kOfxParamInvalidateAll"
+          }
+        ]
+      },
+      "dimension": {
+        "$type": "Fixed",
+        "size": 1
+      }
+    },
+    "kOfxParamPropCanUndo": {
+      "type": {
+        "$type": "Simple",
+        "one_of": [
+          "Bool"
+        ]
+      },
+      "dimension": {
+        "$type": "Fixed",
+        "size": 1
+      }
+    },
+    "kOfxParamPropChoiceEnum": {
+      "type": {
+        "$type": "Simple",
+        "one_of": [
+          "Bool"
+        ]
+      },
+      "dimension": {
+        "$type": "Fixed",
+        "size": 1
+      },
+      "introduced": "\"1.5\""
+    },
+    "kOfxParamPropChoiceOption": {
+      "type": {
+        "$type": "Simple",
+        "one_of": [
+          "String"
+        ]
+      },
+      "dimension": {
+        "$type": "Dynamic"
+      }
+    },
+    "kOfxParamPropChoiceOrder": {
+      "type": {
+        "$type": "Simple",
+        "one_of": [
+          "Int"
+        ]
+      },
+      "dimension": {
+        "$type": "Dynamic"
+      }
+    },
+    "kOfxParamPropCustomInterpCallbackV1": {
+      "type": {
+        "$type": "Simple",
+        "one_of": [
+          "Pointer"
+        ]
+      },
+      "dimension": {
+        "$type": "Fixed",
+        "size": 1
+      },
+      "cname": "kOfxParamPropCustomInterpCallbackV1"
+    },
+    "kOfxParamPropCustomValue": {
+      "type": {
+        "$type": "Simple",
+        "one_of": [
+          "String"
+        ]
+      },
+      "dimension": {
+        "$type": "Fixed",
+        "size": 2
+      }
+    },
+    "kOfxParamPropDataPtr": {
+      "type": {
+        "$type": "Simple",
+        "one_of": [
+          "Pointer"
+        ]
+      },
+      "dimension": {
+        "$type": "Fixed",
+        "size": 1
+      }
+    },
+    "kOfxParamPropDefault": {
+      "type": {
+        "$type": "Simple",
+        "one_of": [
+          "Int",
+          "Double",
+          "String",
+          "Pointer"
+        ]
+      },
+      "dimension": {
+        "$type": "Dynamic"
+      }
+    },
+    "kOfxParamPropDefaultCoordinateSystem": {
+      "type": {
+        "$type": "StringEnum",
+        "one_of": [
+          {
+            "$type": "Defined",
+            "cname": "kOfxParamCoordinatesCanonical"
+          },
+          {
+            "$type": "Defined",
+            "cname": "kOfxParamCoordinatesNormalised"
+          }
+        ]
+      },
+      "dimension": {
+        "$type": "Fixed",
+        "size": 1
+      }
+    },
+    "kOfxParamPropDigits": {
+      "type": {
+        "$type": "Simple",
+        "one_of": [
+          "Int"
+        ]
+      },
+      "dimension": {
+        "$type": "Fixed",
+        "size": 1
+      }
+    },
+    "kOfxParamPropDimensionLabel": {
+      "type": {
+        "$type": "Simple",
+        "one_of": [
+          "String"
+        ]
+      },
+      "dimension": {
+        "$type": "Fixed",
+        "size": 1
+      }
+    },
+    "kOfxParamPropDisplayMax": {
+      "type": {
+        "$type": "Simple",
+        "one_of": [
+          "Int",
+          "Double"
+        ]
+      },
+      "dimension": {
+        "$type": "Dynamic"
+      }
+    },
+    "kOfxParamPropDisplayMin": {
+      "type": {
+        "$type": "Simple",
+        "one_of": [
+          "Int",
+          "Double"
+        ]
+      },
+      "dimension": {
+        "$type": "Dynamic"
+      }
+    },
+    "kOfxParamPropDoubleType": {
+      "type": {
+        "$type": "StringEnum",
+        "one_of": [
+          {
+            "$type": "Defined",
+            "cname": "kOfxParamDoubleTypePlain"
+          },
+          {
+            "$type": "Defined",
+            "cname": "kOfxParamDoubleTypeAngle"
+          },
+          {
+            "$type": "Defined",
+            "cname": "kOfxParamDoubleTypeScale"
+          },
+          {
+            "$type": "Defined",
+            "cname": "kOfxParamDoubleTypeTime"
+          },
+          {
+            "$type": "Defined",
+            "cname": "kOfxParamDoubleTypeAbsoluteTime"
+          },
+          {
+            "$type": "Defined",
+            "cname": "kOfxParamDoubleTypeX"
+          },
+          {
+            "$type": "Defined",
+            "cname": "kOfxParamDoubleTypeXAbsolute"
+          },
+          {
+            "$type": "Defined",
+            "cname": "kOfxParamDoubleTypeY"
+          },
+          {
+            "$type": "Defined",
+            "cname": "kOfxParamDoubleTypeYAbsolute"
+          },
+          {
+            "$type": "Defined",
+            "cname": "kOfxParamDoubleTypeXY"
+          },
+          {
+            "$type": "Defined",
+            "cname": "kOfxParamDoubleTypeXYAbsolute"
+          }
+        ]
+      },
+      "dimension": {
+        "$type": "Fixed",
+        "size": 1
+      }
+    },
+    "kOfxParamPropEnabled": {
+      "type": {
+        "$type": "Simple",
+        "one_of": [
+          "Bool"
+        ]
+      },
+      "dimension": {
+        "$type": "Fixed",
+        "size": 1
+      },
+      "optional": true
+    },
+    "kOfxParamPropEvaluateOnChange": {
+      "type": {
+        "$type": "Simple",
+        "one_of": [
+          "Bool"
+        ]
+      },
+      "dimension": {
+        "$type": "Fixed",
+        "size": 1
+      }
+    },
+    "kOfxParamPropGroupOpen": {
+      "type": {
+        "$type": "Simple",
+        "one_of": [
+          "Bool"
+        ]
+      },
+      "dimension": {
+        "$type": "Fixed",
+        "size": 1
+      }
+    },
+    "kOfxParamPropHasHostOverlayHandle": {
+      "type": {
+        "$type": "Simple",
+        "one_of": [
+          "Bool"
+        ]
+      },
+      "dimension": {
+        "$type": "Fixed",
+        "size": 1
+      }
+    },
+    "kOfxParamPropHint": {
+      "type": {
+        "$type": "Simple",
+        "one_of": [
+          "String"
+        ]
+      },
+      "dimension": {
+        "$type": "Fixed",
+        "size": 1
+      }
+    },
+    "kOfxParamPropIncrement": {
+      "type": {
+        "$type": "Simple",
+        "one_of": [
+          "Double"
+        ]
+      },
+      "dimension": {
+        "$type": "Fixed",
+        "size": 1
+      }
+    },
+    "kOfxParamPropInteractMinimumSize": {
+      "type": {
+        "$type": "Simple",
+        "one_of": [
+          "Double"
+        ]
+      },
+      "dimension": {
+        "$type": "Fixed",
+        "size": 2
+      }
+    },
+    "kOfxParamPropInteractPreferedSize": {
+      "type": {
+        "$type": "Simple",
+        "one_of": [
+          "Int"
+        ]
+      },
+      "dimension": {
+        "$type": "Fixed",
+        "size": 2
+      }
+    },
+    "kOfxParamPropInteractSize": {
+      "type": {
+        "$type": "Simple",
+        "one_of": [
+          "Double"
+        ]
+      },
+      "dimension": {
+        "$type": "Fixed",
+        "size": 2
+      }
+    },
+    "kOfxParamPropInteractSizeAspect": {
+      "type": {
+        "$type": "Simple",
+        "one_of": [
+          "Double"
+        ]
+      },
+      "dimension": {
+        "$type": "Fixed",
+        "size": 1
+      }
+    },
+    "kOfxParamPropInteractV1": {
+      "type": {
+        "$type": "Simple",
+        "one_of": [
+          "Pointer"
+        ]
+      },
+      "dimension": {
+        "$type": "Fixed",
+        "size": 1
+      }
+    },
+    "kOfxParamPropInterpolationAmount": {
+      "type": {
+        "$type": "Simple",
+        "one_of": [
+          "Double"
+        ]
+      },
+      "dimension": {
+        "$type": "Fixed",
+        "size": 1
+      }
+    },
+    "kOfxParamPropInterpolationTime": {
+      "type": {
+        "$type": "Simple",
+        "one_of": [
+          "Double"
+        ]
+      },
+      "dimension": {
+        "$type": "Fixed",
+        "size": 2
+      }
+    },
+    "kOfxParamPropIsAnimating": {
+      "type": {
+        "$type": "Simple",
+        "one_of": [
+          "Bool"
+        ]
+      },
+      "dimension": {
+        "$type": "Fixed",
+        "size": 1
+      }
+    },
+    "kOfxParamPropIsAutoKeying": {
+      "type": {
+        "$type": "Simple",
+        "one_of": [
+          "Bool"
+        ]
+      },
+      "dimension": {
+        "$type": "Fixed",
+        "size": 1
+      }
+    },
+    "kOfxParamPropMax": {
+      "type": {
+        "$type": "Simple",
+        "one_of": [
+          "Int",
+          "Double"
+        ]
+      },
+      "dimension": {
+        "$type": "Dynamic"
+      }
+    },
+    "kOfxParamPropMin": {
+      "type": {
+        "$type": "Simple",
+        "one_of": [
+          "Int",
+          "Double"
+        ]
+      },
+      "dimension": {
+        "$type": "Dynamic"
+      }
+    },
+    "kOfxParamPropPageChild": {
+      "type": {
+        "$type": "Simple",
+        "one_of": [
+          "String"
+        ]
+      },
+      "dimension": {
+        "$type": "Dynamic"
+      }
+    },
+    "kOfxParamPropParametricDimension": {
+      "type": {
+        "$type": "Simple",
+        "one_of": [
+          "Int"
+        ]
+      },
+      "dimension": {
+        "$type": "Fixed",
+        "size": 1
+      }
+    },
+    "kOfxParamPropParametricInteractBackground": {
+      "type": {
+        "$type": "Simple",
+        "one_of": [
+          "Pointer"
+        ]
+      },
+      "dimension": {
+        "$type": "Fixed",
+        "size": 1
+      }
+    },
+    "kOfxParamPropParametricRange": {
+      "type": {
+        "$type": "Simple",
+        "one_of": [
+          "Double"
+        ]
+      },
+      "dimension": {
+        "$type": "Fixed",
+        "size": 2
+      }
+    },
+    "kOfxParamPropParametricUIColour": {
+      "type": {
+        "$type": "Simple",
+        "one_of": [
+          "Double"
+        ]
+      },
+      "dimension": {
+        "$type": "Dynamic"
+      }
+    },
+    "kOfxParamPropParent": {
+      "type": {
+        "$type": "Simple",
+        "one_of": [
+          "String"
+        ]
+      },
+      "dimension": {
+        "$type": "Fixed",
+        "size": 1
+      }
+    },
+    "kOfxParamPropPersistant": {
+      "type": {
+        "$type": "Simple",
+        "one_of": [
+          "Bool"
+        ]
+      },
+      "dimension": {
+        "$type": "Fixed",
+        "size": 1
+      }
+    },
+    "kOfxParamPropPluginMayWrite": {
+      "type": {
+        "$type": "Simple",
+        "one_of": [
+          "Bool"
+        ]
+      },
+      "dimension": {
+        "$type": "Fixed",
+        "size": 1
+      },
+      "deprecated": "\"1.4\""
+    },
+    "kOfxParamPropScriptName": {
+      "type": {
+        "$type": "Simple",
+        "one_of": [
+          "String"
+        ]
+      },
+      "dimension": {
+        "$type": "Fixed",
+        "size": 1
+      }
+    },
+    "kOfxParamPropSecret": {
+      "type": {
+        "$type": "Simple",
+        "one_of": [
+          "Bool"
+        ]
+      },
+      "dimension": {
+        "$type": "Fixed",
+        "size": 1
+      }
+    },
+    "kOfxParamPropShowTimeMarker": {
+      "type": {
+        "$type": "Simple",
+        "one_of": [
+          "Bool"
+        ]
+      },
+      "dimension": {
+        "$type": "Fixed",
+        "size": 1
+      }
+    },
+    "kOfxParamPropStringFilePathExists": {
+      "type": {
+        "$type": "Simple",
+        "one_of": [
+          "Bool"
+        ]
+      },
+      "dimension": {
+        "$type": "Fixed",
+        "size": 1
+      }
+    },
+    "kOfxParamPropStringMode": {
+      "type": {
+        "$type": "StringEnum",
+        "one_of": [
+          {
+            "$type": "Defined",
+            "cname": "kOfxParamStringIsSingleLine"
+          },
+          {
+            "$type": "Defined",
+            "cname": "kOfxParamStringIsMultiLine"
+          },
+          {
+            "$type": "Defined",
+            "cname": "kOfxParamStringIsFilePath"
+          },
+          {
+            "$type": "Defined",
+            "cname": "kOfxParamStringIsDirectoryPath"
+          },
+          {
+            "$type": "Defined",
+            "cname": "kOfxParamStringIsLabel"
+          },
+          {
+            "$type": "Defined",
+            "cname": "kOfxParamStringIsRichTextFormat"
+          }
+        ]
+      },
+      "dimension": {
+        "$type": "Fixed",
+        "size": 1
+      }
+    },
+    "kOfxParamPropType": {
+      "type": {
+        "$type": "Simple",
+        "one_of": [
+          "String"
+        ]
+      },
+      "dimension": {
+        "$type": "Fixed",
+        "size": 1
+      }
+    },
+    "kOfxParamPropUseHostOverlayHandle": {
+      "type": {
+        "$type": "Simple",
+        "one_of": [
+          "Bool"
+        ]
+      },
+      "dimension": {
+        "$type": "Fixed",
+        "size": 1
+      },
+      "cname": "kOfxParamPropUseHostOverlayHandle"
+    },
+    "kOfxPluginPropFilePath": {
+      "type": {
+        "$type": "Simple",
+        "one_of": [
+          "String"
+        ]
+      },
+      "dimension": {
+        "$type": "Fixed",
+        "size": 1
+      }
+    },
+    "kOfxPluginPropParamPageOrder": {
+      "type": {
+        "$type": "Simple",
+        "one_of": [
+          "String"
+        ]
+      },
+      "dimension": {
+        "$type": "Dynamic"
+      }
+    },
+    "kOfxPropAPIVersion": {
+      "type": {
+        "$type": "Simple",
+        "one_of": [
+          "Int"
+        ]
+      },
+      "dimension": {
+        "$type": "Dynamic"
+      }
+    },
+    "kOfxPropChangeReason": {
+      "type": {
+        "$type": "StringEnum",
+        "one_of": [
+          {
+            "$type": "Defined",
+            "cname": "kOfxChangeUserEdited"
+          },
+          {
+            "$type": "Defined",
+            "cname": "kOfxChangePluginEdited"
+          },
+          {
+            "$type": "Defined",
+            "cname": "kOfxChangeTime"
+          }
+        ]
+      },
+      "dimension": {
+        "$type": "Fixed",
+        "size": 1
+      }
+    },
+    "kOfxPropEffectInstance": {
+      "type": {
+        "$type": "Simple",
+        "one_of": [
+          "Pointer"
+        ]
+      },
+      "dimension": {
+        "$type": "Fixed",
+        "size": 1
+      }
+    },
+    "kOfxPropHostOSHandle": {
+      "type": {
+        "$type": "Simple",
+        "one_of": [
+          "Pointer"
+        ]
+      },
+      "dimension": {
+        "$type": "Fixed",
+        "size": 1
+      }
+    },
+    "kOfxPropIcon": {
+      "type": {
+        "$type": "Simple",
+        "one_of": [
+          "String"
+        ]
+      },
+      "dimension": {
+        "$type": "Fixed",
+        "size": 2
+      },
+      "host_optional": true
+    },
+    "kOfxPropInstanceData": {
+      "type": {
+        "$type": "Simple",
+        "one_of": [
+          "Pointer"
+        ]
+      },
+      "dimension": {
+        "$type": "Fixed",
+        "size": 1
+      }
+    },
+    "kOfxPropIsInteractive": {
+      "type": {
+        "$type": "Simple",
+        "one_of": [
+          "Bool"
+        ]
+      },
+      "dimension": {
+        "$type": "Fixed",
+        "size": 1
+      }
+    },
+    "kOfxPropKeyString": {
+      "type": {
+        "$type": "Simple",
+        "one_of": [
+          "String"
+        ]
+      },
+      "dimension": {
+        "$type": "Fixed",
+        "size": 1
+      },
+      "cname": "kOfxPropKeyString"
+    },
+    "kOfxPropKeySym": {
+      "type": {
+        "$type": "Simple",
+        "one_of": [
+          "Int"
+        ]
+      },
+      "dimension": {
+        "$type": "Fixed",
+        "size": 1
+      },
+      "cname": "kOfxPropKeySym"
+    },
+    "kOfxPropLabel": {
+      "type": {
+        "$type": "Simple",
+        "one_of": [
+          "String"
+        ]
+      },
+      "dimension": {
+        "$type": "Fixed",
+        "size": 1
+      }
+    },
+    "kOfxPropLongLabel": {
+      "type": {
+        "$type": "Simple",
+        "one_of": [
+          "String"
+        ]
+      },
+      "dimension": {
+        "$type": "Fixed",
+        "size": 1
+      },
+      "host_optional": true
+    },
+    "kOfxPropName": {
+      "type": {
+        "$type": "Simple",
+        "one_of": [
+          "String"
+        ]
+      },
+      "dimension": {
+        "$type": "Fixed",
+        "size": 1
+      }
+    },
+    "kOfxPropParamSetNeedsSyncing": {
+      "type": {
+        "$type": "Simple",
+        "one_of": [
+          "Bool"
+        ]
+      },
+      "dimension": {
+        "$type": "Fixed",
+        "size": 1
+      }
+    },
+    "kOfxPropPluginDescription": {
+      "type": {
+        "$type": "Simple",
+        "one_of": [
+          "String"
+        ]
+      },
+      "dimension": {
+        "$type": "Fixed",
+        "size": 1
+      }
+    },
+    "kOfxPropShortLabel": {
+      "type": {
+        "$type": "Simple",
+        "one_of": [
+          "String"
+        ]
+      },
+      "dimension": {
+        "$type": "Fixed",
+        "size": 1
+      },
+      "host_optional": true
+    },
+    "kOfxPropTime": {
+      "type": {
+        "$type": "Simple",
+        "one_of": [
+          "Double"
+        ]
+      },
+      "dimension": {
+        "$type": "Fixed",
+        "size": 1
+      }
+    },
+    "kOfxPropType": {
+      "type": {
+        "$type": "Simple",
+        "one_of": [
+          "String"
+        ]
+      },
+      "dimension": {
+        "$type": "Fixed",
+        "size": 1
+      }
+    },
+    "kOfxPropVersion": {
+      "type": {
+        "$type": "Simple",
+        "one_of": [
+          "Int"
+        ]
+      },
+      "dimension": {
+        "$type": "Dynamic"
+      }
+    },
+    "kOfxPropVersionLabel": {
+      "type": {
+        "$type": "Simple",
+        "one_of": [
+          "String"
+        ]
+      },
+      "dimension": {
+        "$type": "Fixed",
+        "size": 1
+      }
+    }
+  },
+  "propset_map": {
+    "ClipDescriptor": {
+      "write": "Plugin",
+      "props": {
+        "kOfxImageClipPropFieldExtraction": {},
+        "kOfxImageClipPropIsMask": {},
+        "kOfxImageClipPropOptional": {},
+        "kOfxImageEffectPropSupportedComponents": {},
+        "kOfxImageEffectPropSupportsTiles": {},
+        "kOfxImageEffectPropTemporalClipAccess": {},
+        "kOfxPropLabel": {},
+        "kOfxPropLongLabel": {},
+        "kOfxPropName": {},
+        "kOfxPropShortLabel": {},
+        "kOfxPropType": {}
+      }
+    },
+    "ClipInstance": {
+      "write": "Host",
+      "props": {
+        "kOfxImageClipPropColourspace": {},
+        "kOfxImageClipPropConnected": {},
+        "kOfxImageClipPropContinuousSamples": {},
+        "kOfxImageClipPropFieldExtraction": {},
+        "kOfxImageClipPropFieldOrder": {},
+        "kOfxImageClipPropIsMask": {},
+        "kOfxImageClipPropOptional": {},
+        "kOfxImageClipPropPreferredColourspaces": {},
+        "kOfxImageClipPropUnmappedComponents": {},
+        "kOfxImageClipPropUnmappedPixelDepth": {},
+        "kOfxImageEffectPropComponents": {},
+        "kOfxImageEffectPropFrameRange": {},
+        "kOfxImageEffectPropFrameRate": {},
+        "kOfxImageEffectPropPixelDepth": {},
+        "kOfxImageEffectPropPreMultiplication": {},
+        "kOfxImageEffectPropSupportedComponents": {},
+        "kOfxImageEffectPropSupportsTiles": {},
+        "kOfxImageEffectPropTemporalClipAccess": {},
+        "kOfxImageEffectPropUnmappedFrameRange": {},
+        "kOfxImageEffectPropUnmappedFrameRate": {},
+        "kOfxImagePropPixelAspectRatio": {},
+        "kOfxPropLabel": {},
+        "kOfxPropLongLabel": {},
+        "kOfxPropName": {},
+        "kOfxPropShortLabel": {},
+        "kOfxPropType": {}
+      }
+    },
+    "EffectDescriptor": {
+      "write": "Plugin",
+      "props": {
+        "kOfxImageEffectPluginPropFieldRenderTwiceAlways": {},
+        "kOfxImageEffectPluginPropGrouping": {},
+        "kOfxImageEffectPluginPropHostFrameThreading": {},
+        "kOfxImageEffectPluginPropObsolete": {},
+        "kOfxImageEffectPluginPropOverlayInteractV1": {},
+        "kOfxImageEffectPluginPropOverlayInteractV2": {},
+        "kOfxImageEffectPluginPropSingleInstance": {},
+        "kOfxImageEffectPluginRenderThreadSafety": {},
+        "kOfxImageEffectPropCPURenderSupported": {
+          "host_optional": true
+        },
+        "kOfxImageEffectPropClipPreferencesSlaveParam": {},
+        "kOfxImageEffectPropColourManagementAvailableConfigs": {
+          "host_optional": true
+        },
+        "kOfxImageEffectPropColourManagementStyle": {
+          "host_optional": true
+        },
+        "kOfxImageEffectPropNoSpatialAwareness": {
+          "host_optional": true
+        },
+        "kOfxImageEffectPropOpenCLSupported": {
+          "host_optional": true
+        },
+        "kOfxImageEffectPropOpenGLRenderSupported": {},
+        "kOfxImageEffectPropSupportedContexts": {},
+        "kOfxImageEffectPropSupportedPixelDepths": {},
+        "kOfxImageEffectPropSupportsMultiResolution": {},
+        "kOfxImageEffectPropSupportsMultipleClipDepths": {},
+        "kOfxImageEffectPropSupportsMultipleClipPARs": {},
+        "kOfxImageEffectPropSupportsTiles": {},
+        "kOfxImageEffectPropTemporalClipAccess": {},
+        "kOfxOpenGLPropPixelDepth": {
+          "host_optional": true
+        },
+        "kOfxPluginPropFilePath": {
+          "write": "Host"
+        },
+        "kOfxPropLabel": {},
+        "kOfxPropLongLabel": {},
+        "kOfxPropPluginDescription": {
+          "host_optional": true
+        },
+        "kOfxPropShortLabel": {},
+        "kOfxPropType": {},
+        "kOfxPropVersion": {
+          "host_optional": true
+        },
+        "kOfxPropVersionLabel": {
+          "host_optional": true
+        }
+      }
+    },
+    "EffectInstance": {
+      "write": "Host",
+      "props": {
+        "kOfxImageEffectInstancePropEffectDuration": {},
+        "kOfxImageEffectInstancePropSequentialRender": {},
+        "kOfxImageEffectPropCPURenderSupported": {
+          "host_optional": true
+        },
+        "kOfxImageEffectPropColourManagementConfig": {},
+        "kOfxImageEffectPropColourManagementStyle": {},
+        "kOfxImageEffectPropContext": {},
+        "kOfxImageEffectPropDisplayColourspace": {},
+        "kOfxImageEffectPropFrameRate": {},
+        "kOfxImageEffectPropOCIOConfig": {},
+        "kOfxImageEffectPropOCIODisplay": {},
+        "kOfxImageEffectPropOCIOView": {},
+        "kOfxImageEffectPropOpenGLRenderSupported": {},
+        "kOfxImageEffectPropPluginHandle": {},
+        "kOfxImageEffectPropProjectExtent": {},
+        "kOfxImageEffectPropProjectOffset": {},
+        "kOfxImageEffectPropProjectPixelAspectRatio": {},
+        "kOfxImageEffectPropProjectSize": {},
+        "kOfxImageEffectPropSupportsTiles": {},
+        "kOfxPropInstanceData": {},
+        "kOfxPropIsInteractive": {},
+        "kOfxPropType": {}
+      }
+    },
+    "Image": {
+      "write": "Host",
+      "props": {
+        "kOfxImageEffectPropComponents": {},
+        "kOfxImageEffectPropPixelDepth": {},
+        "kOfxImageEffectPropPreMultiplication": {},
+        "kOfxImageEffectPropRenderScale": {},
+        "kOfxImagePropBounds": {},
+        "kOfxImagePropData": {},
+        "kOfxImagePropField": {},
+        "kOfxImagePropPixelAspectRatio": {},
+        "kOfxImagePropRegionOfDefinition": {},
+        "kOfxImagePropRowBytes": {},
+        "kOfxImagePropUniqueIdentifier": {},
+        "kOfxPropType": {}
+      }
+    },
+    "ImageEffectHost": {
+      "write": "Host",
+      "props": {
+        "kOfxImageEffectHostPropIsBackground": {},
+        "kOfxImageEffectHostPropNativeOrigin": {
+          "host_optional": true
+        },
+        "kOfxImageEffectInstancePropSequentialRender": {
+          "host_optional": true
+        },
+        "kOfxImageEffectPropCPURenderSupported": {
+          "host_optional": true
+        },
+        "kOfxImageEffectPropColourManagementAvailableConfigs": {
+          "host_optional": true
+        },
+        "kOfxImageEffectPropColourManagementStyle": {
+          "host_optional": true
+        },
+        "kOfxImageEffectPropOpenCLSupported": {
+          "host_optional": true
+        },
+        "kOfxImageEffectPropOpenGLRenderSupported": {},
+        "kOfxImageEffectPropRenderQualityDraft": {
+          "host_optional": true
+        },
+        "kOfxImageEffectPropSetableFielding": {},
+        "kOfxImageEffectPropSetableFrameRate": {},
+        "kOfxImageEffectPropSupportedComponents": {},
+        "kOfxImageEffectPropSupportedContexts": {},
+        "kOfxImageEffectPropSupportsMultiResolution": {},
+        "kOfxImageEffectPropSupportsMultipleClipDepths": {},
+        "kOfxImageEffectPropSupportsMultipleClipPARs": {},
+        "kOfxImageEffectPropSupportsOverlays": {},
+        "kOfxImageEffectPropSupportsTiles": {},
+        "kOfxImageEffectPropTemporalClipAccess": {},
+        "kOfxParamHostPropMaxPages": {},
+        "kOfxParamHostPropMaxParameters": {},
+        "kOfxParamHostPropPageRowColumnCount": {},
+        "kOfxParamHostPropSupportsBooleanAnimation": {},
+        "kOfxParamHostPropSupportsChoiceAnimation": {},
+        "kOfxParamHostPropSupportsCustomAnimation": {},
+        "kOfxParamHostPropSupportsCustomInteract": {},
+        "kOfxParamHostPropSupportsParametricAnimation": {
+          "host_optional": true
+        },
+        "kOfxParamHostPropSupportsStrChoice": {
+          "host_optional": true
+        },
+        "kOfxParamHostPropSupportsStrChoiceAnimation": {
+          "host_optional": true
+        },
+        "kOfxParamHostPropSupportsStringAnimation": {},
+        "kOfxPropAPIVersion": {},
+        "kOfxPropHostOSHandle": {
+          "host_optional": true
+        },
+        "kOfxPropLabel": {},
+        "kOfxPropName": {},
+        "kOfxPropType": {},
+        "kOfxPropVersion": {},
+        "kOfxPropVersionLabel": {}
+      }
+    },
+    "InteractDescriptor": {
+      "write": "Host",
+      "props": {
+        "kOfxInteractPropBitDepth": {},
+        "kOfxInteractPropHasAlpha": {}
+      }
+    },
+    "InteractInstance": {
+      "write": "Host",
+      "props": {
+        "kOfxInteractPropBackgroundColour": {},
+        "kOfxInteractPropBitDepth": {},
+        "kOfxInteractPropHasAlpha": {},
+        "kOfxInteractPropPixelScale": {},
+        "kOfxInteractPropSlaveToParam": {},
+        "kOfxInteractPropSuggestedColour": {},
+        "kOfxPropEffectInstance": {},
+        "kOfxPropInstanceData": {}
+      }
+    },
+    "ParamDouble1D": {
+      "write": "Plugin",
+      "props": {
+        "kOfxParamPropDoubleType": {},
+        "kOfxParamPropShowTimeMarker": {}
+      },
+      "props_refs": [
+        "ParamsAllButGroupPage",
+        "ParamsCommon",
+        "ParamsDouble",
+        "ParamsNumeric",
+        "ParamsValue"
+      ]
+    },
+    "ParameterSet": {
+      "write": "Plugin",
+      "props": {
+        "kOfxPluginPropParamPageOrder": {},
+        "kOfxPropParamSetNeedsSyncing": {}
+      }
+    },
+    "ParamsByte": {
+      "write": "Plugin",
+      "props_refs": [
+        "ParamsAllButGroupPage",
+        "ParamsCommon",
+        "ParamsNumeric",
+        "ParamsValue"
+      ]
+    },
+    "ParamsChoice": {
+      "write": "Plugin",
+      "props": {
+        "kOfxParamPropChoiceOption": {},
+        "kOfxParamPropChoiceOrder": {}
+      },
+      "props_refs": [
+        "ParamsAllButGroupPage",
+        "ParamsCommon",
+        "ParamsValue"
+      ]
+    },
+    "ParamsCustom": {
+      "write": "Plugin",
+      "props": {
+        "kOfxParamPropCustomInterpCallbackV1": {}
+      },
+      "props_refs": [
+        "ParamsAllButGroupPage",
+        "ParamsCommon",
+        "ParamsValue"
+      ]
+    },
+    "ParamsDouble2D3D": {
+      "write": "Plugin",
+      "props": {
+        "kOfxParamPropDoubleType": {}
+      },
+      "props_refs": [
+        "ParamsAllButGroupPage",
+        "ParamsCommon",
+        "ParamsDouble",
+        "ParamsNumeric",
+        "ParamsValue"
+      ]
+    },
+    "ParamsGroup": {
+      "write": "Plugin",
+      "props": {
+        "kOfxParamPropGroupOpen": {}
+      },
+      "props_refs": [
+        "ParamsCommon"
+      ]
+    },
+    "ParamsInt2D3D": {
+      "write": "Plugin",
+      "props": {
+        "kOfxParamPropDimensionLabel": {}
+      },
+      "props_refs": [
+        "ParamsAllButGroupPage",
+        "ParamsCommon",
+        "ParamsNumeric",
+        "ParamsValue"
+      ]
+    },
+    "ParamsNormalizedSpatial": {
+      "write": "Plugin",
+      "props": {
+        "kOfxParamPropDefaultCoordinateSystem": {}
+      },
+      "props_refs": [
+        "ParamsAllButGroupPage",
+        "ParamsCommon",
+        "ParamsDouble",
+        "ParamsNumeric",
+        "ParamsValue"
+      ]
+    },
+    "ParamsPage": {
+      "write": "Plugin",
+      "props": {
+        "kOfxParamPropPageChild": {}
+      },
+      "props_refs": [
+        "ParamsCommon"
+      ]
+    },
+    "ParamsParametric": {
+      "write": "Plugin",
+      "props": {
+        "kOfxParamPropAnimates": {},
+        "kOfxParamPropCacheInvalidation": {},
+        "kOfxParamPropCanUndo": {},
+        "kOfxParamPropEvaluateOnChange": {},
+        "kOfxParamPropIsAnimating": {},
+        "kOfxParamPropIsAutoKeying": {},
+        "kOfxParamPropParametricDimension": {},
+        "kOfxParamPropParametricInteractBackground": {},
+        "kOfxParamPropParametricRange": {},
+        "kOfxParamPropParametricUIColour": {},
+        "kOfxParamPropPersistant": {},
+        "kOfxParamPropPluginMayWrite": {}
+      },
+      "props_refs": [
+        "ParamsAllButGroupPage",
+        "ParamsCommon",
+        "ParamsValue"
+      ]
+    },
+    "ParamsStrChoice": {
+      "write": "Plugin",
+      "props": {
+        "kOfxParamPropChoiceEnum": {},
+        "kOfxParamPropChoiceOption": {}
+      },
+      "props_refs": [
+        "ParamsAllButGroupPage",
+        "ParamsCommon",
+        "ParamsValue"
+      ]
+    },
+    "ParamsString": {
+      "write": "Plugin",
+      "props": {
+        "kOfxParamPropStringFilePathExists": {},
+        "kOfxParamPropStringMode": {}
+      },
+      "props_refs": [
+        "ParamsAllButGroupPage",
+        "ParamsCommon",
+        "ParamsNumeric",
+        "ParamsValue"
+      ]
+    }
+  },
+  "propsetdef_map": {
+    "ParamsAllButGroupPage": {
+      "props": {
+        "kOfxParamPropHasHostOverlayHandle": {},
+        "kOfxParamPropInteractMinimumSize": {},
+        "kOfxParamPropInteractPreferedSize": {},
+        "kOfxParamPropInteractSize": {},
+        "kOfxParamPropInteractSizeAspect": {},
+        "kOfxParamPropInteractV1": {},
+        "kOfxParamPropUseHostOverlayHandle": {}
+      }
+    },
+    "ParamsCommon": {
+      "props": {
+        "kOfxParamPropDataPtr": {},
+        "kOfxParamPropEnabled": {},
+        "kOfxParamPropHint": {},
+        "kOfxParamPropParent": {},
+        "kOfxParamPropScriptName": {},
+        "kOfxParamPropSecret": {},
+        "kOfxParamPropType": {},
+        "kOfxPropIcon": {},
+        "kOfxPropLabel": {},
+        "kOfxPropLongLabel": {},
+        "kOfxPropName": {},
+        "kOfxPropShortLabel": {},
+        "kOfxPropType": {}
+      }
+    },
+    "ParamsDouble": {
+      "props": {
+        "kOfxParamPropDigits": {},
+        "kOfxParamPropIncrement": {}
+      }
+    },
+    "ParamsNumeric": {
+      "props": {
+        "kOfxParamPropDisplayMax": {},
+        "kOfxParamPropDisplayMin": {},
+        "kOfxParamPropMax": {},
+        "kOfxParamPropMin": {}
+      }
+    },
+    "ParamsValue": {
+      "props": {
+        "kOfxParamPropAnimates": {},
+        "kOfxParamPropCacheInvalidation": {},
+        "kOfxParamPropCanUndo": {},
+        "kOfxParamPropDefault": {},
+        "kOfxParamPropEvaluateOnChange": {},
+        "kOfxParamPropIsAnimating": {
+          "write": "Host"
+        },
+        "kOfxParamPropIsAutoKeying": {
+          "write": "Host"
+        },
+        "kOfxParamPropPersistant": {},
+        "kOfxParamPropPluginMayWrite": {}
+      }
+    }
+  },
+  "actiondef_map": {
+    "CustomParamInterpFunc": {
+      "in_args": [
+        "kOfxParamPropCustomValue",
+        "kOfxParamPropInterpolationAmount",
+        "kOfxParamPropInterpolationTime"
+      ],
+      "out_args": [
+        "kOfxParamPropCustomValue",
+        "kOfxParamPropInterpolationTime"
+      ]
+    },
+    "kOfxActionBeginInstanceChanged": {
+      "in_args": [
+        "kOfxImageEffectPropThumbnailRender",
+        "kOfxPropChangeReason"
+      ]
+    },
+    "kOfxActionBeginInstanceEdit": {},
+    "kOfxActionCreateInstance": {},
+    "kOfxActionDescribe": {},
+    "kOfxActionDestroyInstance": {},
+    "kOfxActionEndInstanceChanged": {
+      "in_args": [
+        "kOfxPropChangeReason"
+      ]
+    },
+    "kOfxActionEndInstanceEdit": {},
+    "kOfxActionInstanceChanged": {
+      "in_args": [
+        "kOfxImageEffectPropRenderScale",
+        "kOfxImageEffectPropThumbnailRender",
+        "kOfxPropChangeReason",
+        "kOfxPropName",
+        "kOfxPropTime",
+        "kOfxPropType"
+      ]
+    },
+    "kOfxActionLoad": {},
+    "kOfxActionPurgeCaches": {},
+    "kOfxActionSyncPrivateData": {},
+    "kOfxActionUnload": {},
+    "kOfxImageEffectActionBeginSequenceRender": {
+      "in_args": [
+        "kOfxImageEffectPropCudaEnabled",
+        "kOfxImageEffectPropCudaRenderSupported",
+        "kOfxImageEffectPropCudaStream",
+        "kOfxImageEffectPropCudaStreamSupported",
+        "kOfxImageEffectPropFrameRange",
+        "kOfxImageEffectPropFrameStep",
+        "kOfxImageEffectPropInteractiveRenderStatus",
+        "kOfxImageEffectPropMetalCommandQueue",
+        "kOfxImageEffectPropMetalEnabled",
+        "kOfxImageEffectPropMetalRenderSupported",
+        "kOfxImageEffectPropNoSpatialAwareness",
+        "kOfxImageEffectPropOpenCLCommandQueue",
+        "kOfxImageEffectPropOpenCLEnabled",
+        "kOfxImageEffectPropOpenCLImage",
+        "kOfxImageEffectPropOpenCLRenderSupported",
+        "kOfxImageEffectPropOpenCLSupported",
+        "kOfxImageEffectPropOpenGLEnabled",
+        "kOfxImageEffectPropOpenGLTextureIndex",
+        "kOfxImageEffectPropOpenGLTextureTarget",
+        "kOfxImageEffectPropRenderScale",
+        "kOfxImageEffectPropSequentialRenderStatus",
+        "kOfxImageEffectPropThumbnailRender",
+        "kOfxPropIsInteractive"
+      ]
+    },
+    "kOfxImageEffectActionDescribeInContext": {
+      "in_args": [
+        "kOfxImageEffectPropContext"
+      ]
+    },
+    "kOfxImageEffectActionEndSequenceRender": {
+      "in_args": [
+        "kOfxImageEffectPropCudaEnabled",
+        "kOfxImageEffectPropCudaRenderSupported",
+        "kOfxImageEffectPropCudaStream",
+        "kOfxImageEffectPropCudaStreamSupported",
+        "kOfxImageEffectPropFrameRange",
+        "kOfxImageEffectPropFrameStep",
+        "kOfxImageEffectPropInteractiveRenderStatus",
+        "kOfxImageEffectPropMetalCommandQueue",
+        "kOfxImageEffectPropMetalEnabled",
+        "kOfxImageEffectPropMetalRenderSupported",
+        "kOfxImageEffectPropOpenCLCommandQueue",
+        "kOfxImageEffectPropOpenCLEnabled",
+        "kOfxImageEffectPropOpenCLImage",
+        "kOfxImageEffectPropOpenCLRenderSupported",
+        "kOfxImageEffectPropOpenCLSupported",
+        "kOfxImageEffectPropOpenGLEnabled",
+        "kOfxImageEffectPropOpenGLTextureIndex",
+        "kOfxImageEffectPropOpenGLTextureTarget",
+        "kOfxImageEffectPropRenderScale",
+        "kOfxImageEffectPropSequentialRenderStatus",
+        "kOfxPropIsInteractive"
+      ]
+    },
+    "kOfxImageEffectActionGetClipPreferences": {
+      "out_args": [
+        "kOfxImageClipPropContinuousSamples",
+        "kOfxImageClipPropFieldOrder",
+        "kOfxImageEffectFrameVarying",
+        "kOfxImageEffectPropFrameRate",
+        "kOfxImageEffectPropPreMultiplication"
+      ]
+    },
+    "kOfxImageEffectActionGetFramesNeeded": {
+      "in_args": [
+        "kOfxImageEffectPropThumbnailRender",
+        "kOfxPropTime"
+      ],
+      "out_args": [
+        "kOfxImageEffectPropFrameRange"
+      ]
+    },
+    "kOfxImageEffectActionGetOutputColourspace": {
+      "in_args": [
+        "kOfxImageClipPropPreferredColourspaces"
+      ],
+      "out_args": [
+        "kOfxImageClipPropColourspace"
+      ]
+    },
+    "kOfxImageEffectActionGetRegionOfDefinition": {
+      "in_args": [
+        "kOfxImageEffectPropRenderScale",
+        "kOfxImageEffectPropThumbnailRender",
+        "kOfxPropTime"
+      ],
+      "out_args": [
+        "kOfxImageEffectPropRegionOfDefinition"
+      ]
+    },
+    "kOfxImageEffectActionGetRegionsOfInterest": {
+      "in_args": [
+        "kOfxImageEffectPropRegionOfInterest",
+        "kOfxImageEffectPropRenderScale",
+        "kOfxImageEffectPropThumbnailRender",
+        "kOfxPropTime"
+      ]
+    },
+    "kOfxImageEffectActionGetTimeDomain": {
+      "out_args": [
+        "kOfxImageEffectPropFrameRange"
+      ]
+    },
+    "kOfxImageEffectActionIsIdentity": {
+      "in_args": [
+        "kOfxImageEffectPropFieldToRender",
+        "kOfxImageEffectPropRenderScale",
+        "kOfxImageEffectPropRenderWindow",
+        "kOfxImageEffectPropThumbnailRender",
+        "kOfxPropTime"
+      ]
+    },
+    "kOfxImageEffectActionRender": {
+      "in_args": [
+        "kOfxImageEffectPropCudaEnabled",
+        "kOfxImageEffectPropCudaRenderSupported",
+        "kOfxImageEffectPropCudaStream",
+        "kOfxImageEffectPropCudaStreamSupported",
+        "kOfxImageEffectPropInteractiveRenderStatus",
+        "kOfxImageEffectPropMetalCommandQueue",
+        "kOfxImageEffectPropMetalEnabled",
+        "kOfxImageEffectPropMetalRenderSupported",
+        "kOfxImageEffectPropNoSpatialAwareness",
+        "kOfxImageEffectPropOpenCLCommandQueue",
+        "kOfxImageEffectPropOpenCLEnabled",
+        "kOfxImageEffectPropOpenCLImage",
+        "kOfxImageEffectPropOpenCLRenderSupported",
+        "kOfxImageEffectPropOpenCLSupported",
+        "kOfxImageEffectPropOpenGLEnabled",
+        "kOfxImageEffectPropOpenGLTextureIndex",
+        "kOfxImageEffectPropOpenGLTextureTarget",
+        "kOfxImageEffectPropRenderQualityDraft",
+        "kOfxImageEffectPropSequentialRenderStatus",
+        "kOfxImageEffectPropThumbnailRender",
+        "kOfxPropTime"
+      ]
+    },
+    "kOfxInteractActionDraw": {
+      "in_args": [
+        "kOfxImageEffectPropRenderScale",
+        "kOfxInteractPropBackgroundColour",
+        "kOfxInteractPropDrawContext",
+        "kOfxInteractPropPixelScale",
+        "kOfxPropEffectInstance",
+        "kOfxPropTime"
+      ]
+    },
+    "kOfxInteractActionGainFocus": {
+      "in_args": [
+        "kOfxImageEffectPropRenderScale",
+        "kOfxInteractPropBackgroundColour",
+        "kOfxInteractPropPixelScale",
+        "kOfxPropEffectInstance",
+        "kOfxPropTime"
+      ]
+    },
+    "kOfxInteractActionKeyDown": {
+      "in_args": [
+        "kOfxImageEffectPropRenderScale",
+        "kOfxPropEffectInstance",
+        "kOfxPropKeyString",
+        "kOfxPropKeySym",
+        "kOfxPropTime"
+      ]
+    },
+    "kOfxInteractActionKeyRepeat": {
+      "in_args": [
+        "kOfxImageEffectPropRenderScale",
+        "kOfxPropEffectInstance",
+        "kOfxPropKeyString",
+        "kOfxPropKeySym",
+        "kOfxPropTime"
+      ]
+    },
+    "kOfxInteractActionKeyUp": {
+      "in_args": [
+        "kOfxImageEffectPropRenderScale",
+        "kOfxPropEffectInstance",
+        "kOfxPropKeyString",
+        "kOfxPropKeySym",
+        "kOfxPropTime"
+      ]
+    },
+    "kOfxInteractActionLoseFocus": {
+      "in_args": [
+        "kOfxImageEffectPropRenderScale",
+        "kOfxInteractPropBackgroundColour",
+        "kOfxInteractPropPixelScale",
+        "kOfxPropEffectInstance",
+        "kOfxPropTime"
+      ]
+    },
+    "kOfxInteractActionPenDown": {
+      "in_args": [
+        "kOfxImageEffectPropRenderScale",
+        "kOfxInteractPropBackgroundColour",
+        "kOfxInteractPropPenPosition",
+        "kOfxInteractPropPenPressure",
+        "kOfxInteractPropPenViewportPosition",
+        "kOfxInteractPropPixelScale",
+        "kOfxPropEffectInstance",
+        "kOfxPropTime"
+      ]
+    },
+    "kOfxInteractActionPenMotion": {
+      "in_args": [
+        "kOfxImageEffectPropRenderScale",
+        "kOfxInteractPropBackgroundColour",
+        "kOfxInteractPropPenPosition",
+        "kOfxInteractPropPenPressure",
+        "kOfxInteractPropPenViewportPosition",
+        "kOfxInteractPropPixelScale",
+        "kOfxPropEffectInstance",
+        "kOfxPropTime"
+      ]
+    },
+    "kOfxInteractActionPenUp": {
+      "in_args": [
+        "kOfxImageEffectPropRenderScale",
+        "kOfxInteractPropBackgroundColour",
+        "kOfxInteractPropPenPosition",
+        "kOfxInteractPropPenPressure",
+        "kOfxInteractPropPenViewportPosition",
+        "kOfxInteractPropPixelScale",
+        "kOfxPropEffectInstance",
+        "kOfxPropTime"
+      ]
+    }
+  }
+}
