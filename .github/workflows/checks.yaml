@@ -20,23 +20,6 @@ jobs:
         with:
           submodules: true
 
-      - name: Check whether the submodule `openfx` is on main or an ancestor of main
-        uses: jtmullen/submodule-branch-check-action@v1
-        with:
-          path: openfx
-          branch: main
-          first_parent: true
-          disable_progression: true
-
-      - name: Check whether the submodule `openfx-datagen` is on main or an ancestor of main
-        if: always()
-        uses: jtmullen/submodule-branch-check-action@v1
-        with:
-          path: openfx-datagen
-          branch: main
-          first_parent: true
-          disable_progression: true
-
       - uses: dtolnay/rust-toolchain@stable
         with:
           toolchain: 1.98.1
@@ -55,6 +38,8 @@ jobs:
       #   with:
       #     tool: jsonschema-cli
       # ```
+      #
+      # dsanders11/json-schema-validate-action@v2.0.0: `Error: unknown format "uint32" ignored in schema at path "#/oneOf/1/properties/value"`
       - name: Download jsonschema-cli pre-built binary
         env:
           GH_TOKEN: ${{ github.token }}
@@ -68,6 +53,36 @@ jobs:
           tar -xzf /tmp/jsonschema-cli-x86_64-unknown-linux-gnu.tar.gz \
             -C "$HOME/.local/bin"
 
-      # dsanders11/json-schema-validate-action@v2.0.0: `Error: unknown format "uint32" ignored in schema at path "#/oneOf/1/properties/value"`
-      - name: Validate generated contents against defined schemata
+      - name: "Validate generated bindings against defined schema: bindings"
         run: jsonschema-cli validate ./openfx-datagen/schemata/generated/bindings.current.schema.json -i ./data/generated/bindings/*.json
+      - name: "Validate generated raw metadata against defined schema: metadata-raw"
+        run: jsonschema-cli validate ./openfx-datagen/schemata/generated/metadata-raw.current.schema.json -i ./data/generated/metadata/raw.json
+
+  # ---------------------------------------------------------------------------
+
+  check-submodules-main-or-ancestor:
+    name: Check whether the submodules are on main or an ancestor of main
+    permissions:
+      contents: read
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          submodules: true
+
+      - name: Check whether the submodule `openfx` is on main or an ancestor of main
+        uses: jtmullen/submodule-branch-check-action@v1
+        with:
+          path: openfx
+          branch: main
+          first_parent: true
+          disable_progression: true
+
+      - name: Check whether the submodule `openfx-datagen` is on main or an ancestor of main
+        if: always()
+        uses: jtmullen/submodule-branch-check-action@v1
+        with:
+          path: openfx-datagen
+          branch: main
+          first_parent: true
+          disable_progression: true

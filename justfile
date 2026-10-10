@@ -7,7 +7,9 @@ generate-data:
     rm -rf {{ output-data-path }}
     mkdir -p {{ output-data-path }}
     cargo run --manifest-path ./openfx-datagen/Cargo.toml --package openfx-datagen \
-        --bin cli -- gen-data --input-c-headers {{ input-c-headers-path }} --output-data {{ output-data-path }} 
+        --bin cli -- gen-data --input-c-headers {{ input-c-headers-path }} \
+        --output-bindings-data "{{ output-data-path }}/bindings" \
+        --output-metadata "{{ output-data-path }}/metadata"
 
 detect-stale-generated-contents: generate-all
     #!/usr/bin/env sh
