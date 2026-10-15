@@ -697,6 +697,54 @@
     },
     {
       "$type": "Item",
+      "comment_above": "@brief Declares how an RGB or RGBA parameter's colour values are encoded,\nso that a host can interpret, convert and display them correctly.\n\nThis property applies only to parameters of type ::kOfxParamTypeRGB and\n::kOfxParamTypeRGBA. It governs the colourspace of *every* value exchanged for\nthe parameter through the parameter suite, including its default\n(::kOfxParamPropDefault), its current value, and any keyframes. It does not\nchange the parameter's type, dimension, or numeric API: values are still 3 or 4\ndoubles passed through the ordinary ::OfxParameterSuiteV1 calls.\n\n   - Valid Values - This must be one of\n      - ::kOfxParamColourManagementNone - the parameter is not colour-managed;\n        its values are interpreted as they always have been (the legacy,\n        unmanaged behaviour). This is the default.\n      - ::kOfxParamColourManagementManaged - the parameter's values are in the\n        ACES2065-1 (AP0) reference colourspace. The values are scene-linear and\n        are not constrained to the [0..1] range.\n      - ::kOfxParamColourManagementSRGB - the parameter's values are in the sRGB\n        colourspace (IEC 61966-2-1, i.e. \"web\" RGB, with the sRGB transfer\n        function), constrained to the [0..1] range. This is intended for\n        display-referred user-interface colours such as overlay and on-screen\n        control colours drawn with the Draw Suite, not for processing image\n        pixels.\n\nACES2065-1 is the reference colourspace of the OFX native colour management\nconfig (see @ref ofxColour.h), chosen because it is a single, well-specified,\nscene-referred linear space wide enough to carry any colour the host or plug-in\nmay need without clamping. Restricting the managed encoding to this one space\n(rather than an arbitrary colourspace name) keeps both hosts and plug-ins simple\nand makes stored colours portable between applications.\n\nA plug-in MUST set this property, if at all, only during the describe-in-context\n/ parameter-definition stage, before the parameter instance exists. A plug-in\nMUST NOT change it on a parameter instance, and in particular MUST NOT change it\nduring a render or other action in order to influence a subsequent read: hosts\nmay evaluate parameters concurrently, and the encoding is a fixed property of\nthe parameter, not a per-read mode.\n\nA plug-in MUST check the status returned when setting this property. A host that\ndoes not implement it will fail the set; in that case the plug-in MUST fall back\nto ::kOfxParamColourManagementNone behaviour (old-style, unmanaged values). A\nplug-in that sets ::kOfxParamColourManagementManaged or\n::kOfxParamColourManagementSRGB MUST supply every value it sets (defaults\nincluded) in the declared colourspace, and MUST interpret every value it reads\nas being in that colourspace.\n\nThis property does not require the host to advertise any particular\n::kOfxImageEffectPropColourManagementStyle: the managed and sRGB encodings are\nfully specified by this spec and need no OCIO config. A host that supports this\nproperty MUST accept all three values; a host SHOULD convert the parameter's\ncolour from its declared encoding into whatever space it needs (for example to\ndraw an accurate swatch, to feed the value to the Draw Suite, or to hand a\nwide-gamut colour to the plug-in at render time).\n\nA host SHOULD store ::kOfxParamColourManagementManaged values as ACES2065-1 and\n::kOfxParamColourManagementSRGB values as sRGB in its project files, so that\ncolour params are portable between applications and across versions. When a host\nfirst loads a project saved before the parameter became colour-managed, it\nSHOULD convert the previously stored values into the parameter's declared\ncolourspace (assuming the legacy values were sRGB if it has no better\ninformation).\n\nThe property is ignored on parameter types other than RGB and RGBA. It defaults\nto ::kOfxParamColourManagementNone, so existing plug-ins are unaffected.\n\n    @propdef\n    type: enum\n    dimension: 1\n    introduced: \"1.5.1\"\n    values:\n      - OfxParamColourManagementNone\n      - OfxParamColourManagementManaged\n      - OfxParamColourManagementSRGB",
+      "item": {
+        "$type": "Define",
+        "name": "kOfxParamPropColourManagement",
+        "value": {
+          "$type": "StringLiteral",
+          "value": "OfxParamPropColourManagement"
+        }
+      }
+    },
+    {
+      "$type": "Item",
+      "comment_above": "@brief Value for ::kOfxParamPropColourManagement: the colour parameter is\nnot colour-managed; its values are interpreted as in legacy OpenFX. This is the\ndefault.",
+      "item": {
+        "$type": "Define",
+        "name": "kOfxParamColourManagementNone",
+        "value": {
+          "$type": "StringLiteral",
+          "value": "OfxParamColourManagementNone"
+        }
+      }
+    },
+    {
+      "$type": "Item",
+      "comment_above": "@brief Value for ::kOfxParamPropColourManagement: the colour parameter's\nvalues (defaults, current value and keyframes) are in the ACES2065-1 (AP0)\nreference colourspace, scene-linear and not constrained to [0..1].",
+      "item": {
+        "$type": "Define",
+        "name": "kOfxParamColourManagementManaged",
+        "value": {
+          "$type": "StringLiteral",
+          "value": "OfxParamColourManagementManaged"
+        }
+      }
+    },
+    {
+      "$type": "Item",
+      "comment_above": "@brief Value for ::kOfxParamPropColourManagement: the colour parameter's\nvalues are in the sRGB colourspace, constrained to [0..1], intended for\ndisplay-referred user-interface colours such as Draw Suite overlays.",
+      "item": {
+        "$type": "Define",
+        "name": "kOfxParamColourManagementSRGB",
+        "value": {
+          "$type": "StringLiteral",
+          "value": "OfxParamColourManagementSRGB"
+        }
+      }
+    },
+    {
+      "$type": "Item",
       "comment_above": "@brief Describes how the double parameter should be interpreted by a host.\n\n   - Valid Values -This must be one of\n      - ::kOfxParamDoubleTypePlain - parameter has no special interpretation,\n      - ::kOfxParamDoubleTypeAngle - parameter is to be interpreted as an angle,\n      - ::kOfxParamDoubleTypeScale - parameter is to be interpreted as a scale factor,\n      - ::kOfxParamDoubleTypeTime  - parameter represents a time value (1D only),\n      - ::kOfxParamDoubleTypeAbsoluteTime  - parameter represents an absolute time value (1D only),\n\n      - ::kOfxParamDoubleTypeX - size wrt to the project's X dimension (1D only), in canonical coordinates,\n      - ::kOfxParamDoubleTypeXAbsolute - absolute position on the X axis (1D only), in canonical coordinates,\n      - ::kOfxParamDoubleTypeY - size wrt to the project's Y dimension(1D only), in canonical coordinates,\n      - ::kOfxParamDoubleTypeYAbsolute - absolute position on the Y axis (1D only), in canonical coordinates,\n      - ::kOfxParamDoubleTypeXY - size in 2D (2D only), in canonical coordinates,\n      - ::kOfxParamDoubleTypeXYAbsolute - an absolute position on the image plane, in canonical coordinates.\n\nDouble parameters can be interpreted in several different ways, this property tells the host how to do so and thus gives hints\nas to the interface of the parameter.\n   @propdef\n   type: enum\n   dimension: 1\n   values:\n     - OfxParamDoubleTypePlain\n     - OfxParamDoubleTypeAngle\n     - OfxParamDoubleTypeScale\n     - OfxParamDoubleTypeTime\n     - OfxParamDoubleTypeAbsoluteTime\n     - OfxParamDoubleTypeX\n     - OfxParamDoubleTypeXAbsolute\n     - OfxParamDoubleTypeY\n     - OfxParamDoubleTypeYAbsolute\n     - OfxParamDoubleTypeXY\n     - OfxParamDoubleTypeXYAbsolute",
       "item": {
         "$type": "Define",
@@ -733,7 +781,7 @@
     },
     {
       "$type": "Item",
-      "comment_above": "@brief value for the ::kOfxParamDoubleTypeAngle property, indicating the parameter is to be interpreted as an angle. See \\ref ::kOfxParamPropDoubleType.",
+      "comment_above": "@brief value for the ::kOfxParamPropDoubleType property, indicating the parameter is to be interpreted as an angle. See \\ref ::kOfxParamPropDoubleType.",
       "item": {
         "$type": "Define",
         "name": "kOfxParamDoubleTypeAngle",
@@ -745,7 +793,7 @@
     },
     {
       "$type": "Item",
-      "comment_above": "@brief value for the ::kOfxParamDoubleTypeAngle property, indicating the parameter is to be interpreted as a time. See \\ref ::kOfxParamPropDoubleType.",
+      "comment_above": "@brief value for the ::kOfxParamPropDoubleType property, indicating the parameter is to be interpreted as a time. See \\ref ::kOfxParamPropDoubleType.",
       "item": {
         "$type": "Define",
         "name": "kOfxParamDoubleTypeTime",
@@ -757,7 +805,7 @@
     },
     {
       "$type": "Item",
-      "comment_above": "@brief value for the ::kOfxParamDoubleTypeAngle property, indicating the parameter is to be interpreted as an absolute time from the start of the effect. See \\ref ::kOfxParamPropDoubleType.",
+      "comment_above": "@brief value for the ::kOfxParamPropDoubleType property, indicating the parameter is to be interpreted as an absolute time from the start of the effect. See \\ref ::kOfxParamPropDoubleType.",
       "item": {
         "$type": "Define",
         "name": "kOfxParamDoubleTypeAbsoluteTime",
@@ -1057,7 +1105,7 @@
     },
     {
       "$type": "Item",
-      "comment_above": "@brief Set a enumeration string in a StrChoice (string-valued choice) parameter.\n\n(read/write),\nThis property contains the set of enumeration strings stored by the host in\nthe project corresponding to the options that will be presented to a user\nfrom a StrChoice parameter. See @ref ParametersChoice for more details.\n\n\\since Version 1.5\n    \n    @propdef\n    type: bool\n    dimension: 1\n    added: \"1.5\"",
+      "comment_above": "@brief Set a enumeration string in a StrChoice (string-valued choice) parameter.\n\n(read/write),\nThis property contains the set of enumeration strings stored by the host in\nthe project corresponding to the options that will be presented to a user\nfrom a StrChoice parameter. See @ref ParametersChoice for more details.\n\n\\since Version 1.5\n    \n    @propdef\n    type: string\n    dimension: 0\n    added: \"1.5\"",
       "item": {
         "$type": "Define",
         "name": "kOfxParamPropChoiceEnum",
@@ -1165,7 +1213,7 @@
     },
     {
       "$type": "Item",
-      "comment_above": "@brief Label for individual dimensions on a multidimensional numeric parameter.\n\nUse this on 2D and 3D double and integer parameters to change the label on an individual dimension in any GUI for that parameter.\n    \n    - Valid Values - any\n    @propdef\n    type: string\n    dimension: 1",
+      "comment_above": "@brief Label for individual dimensions on a multidimensional numeric parameter.\n\nUse this on 2D and 3D double and integer parameters to change the label on an individual dimension in any GUI for that parameter.\n    \n    - Valid Values - any\n    @propdef\n    type: string\n    dimension: 0",
       "item": {
         "$type": "Define",
         "name": "kOfxParamPropDimensionLabel",
@@ -1333,7 +1381,7 @@
     },
     {
       "$type": "Item",
-      "comment_above": "@brief Function prototype for custom parameter interpolation callback functions\n\n  \\arg \\c instance    the plugin instance that this parameter occurs in\n  \\arg \\c inArgs      handle holding the following properties...\n    - kOfxPropName - the name of the custom parameter to interpolate\n    - kOfxPropTime - absolute time the interpolation is occurring at\n    - kOfxParamPropCustomValue - string property that gives the value of the two keyframes to interpolate, in this case 2D\n    - kOfxParamPropInterpolationTime - 2D double property that gives the time of the two keyframes we are interpolating\n    - kOfxParamPropInterpolationAmount - 1D double property indicating how much to interpolate between the two keyframes\n\n  \\arg \\c outArgs     handle holding the following properties to be set\n    - kOfxParamPropCustomValue - the value of the interpolated custom parameter, in this case 1D\n\nThis function allows custom parameters to animate by performing interpolation between keys.\n\nThe plugin needs to parse the two strings encoding keyframes on either side of the time \nwe need a value for. It should then interpolate a new value for it, encode it into a string and set\nthe ::kOfxParamPropCustomValue property with this on the outArgs handle.\n\nThe interp value is a linear interpolation amount, however his may be derived from a cubic (or other) curve.\n\n    @actiondef\n    inArgs:\n      - OfxParamPropCustomValue\n      - OfxParamPropInterpolationTime\n      - OfxParamPropInterpolationAmount\n    outArgs:\n      - OfxParamPropCustomValue\n      - OfxParamPropInterpolationTime",
+      "comment_above": "@brief Function prototype for custom parameter interpolation callback functions\n\n  \\arg \\c instance    the plugin instance that this parameter occurs in\n  \\arg \\c inArgs      handle holding the following properties...\n    - kOfxPropName - the name of the custom parameter to interpolate\n    - kOfxPropTime - absolute time the interpolation is occurring at\n    - kOfxParamPropCustomValue - string property that gives the value of the two keyframes to interpolate, in this case 2D\n    - kOfxParamPropInterpolationTime - 2D double property that gives the time of the two keyframes we are interpolating\n    - kOfxParamPropInterpolationAmount - 1D double property indicating how much to interpolate between the two keyframes\n\n  \\arg \\c outArgs     handle holding the following properties to be set\n    - kOfxParamPropCustomValue - the value of the interpolated custom parameter, in this case 1D\n\nThis function allows custom parameters to animate by performing interpolation between keys.\n\nThe plugin needs to parse the two strings encoding keyframes on either side of the time \nwe need a value for. It should then interpolate a new value for it, encode it into a string and set\nthe ::kOfxParamPropCustomValue property with this on the outArgs handle.\n\nThe interp value is a linear interpolation amount, however his may be derived from a cubic (or other) curve.\n\n    @actiondef\n    inArgs:\n      - OfxPropName\n      - OfxPropTime\n      - OfxParamPropCustomValue\n      - OfxParamPropInterpolationTime\n      - OfxParamPropInterpolationAmount\n    outArgs:\n      - OfxParamPropCustomValue",
       "item": {
         "$type": "TypedefFunction",
         "name": "OfxCustomParamInterpFuncV1",
@@ -2050,7 +2098,7 @@
     },
     {
       "$type": "StandaloneComment",
-      "comment": "@propset ParamDouble1D\n    write: plugin\n    props:\n      - OfxParamPropShowTimeMarker\n      - OfxParamPropDoubleType\n      - ParamsCommon_REF\n      - ParamsAllButGroupPage_REF\n      - ParamsValue_REF\n      - ParamsNumeric_REF\n      - ParamsDouble_REF"
+      "comment": "@propset ParamsDouble1D\n    write: plugin\n    props:\n      - OfxParamPropShowTimeMarker\n      - OfxParamPropDoubleType\n      - ParamsCommon_REF\n      - ParamsAllButGroupPage_REF\n      - ParamsValue_REF\n      - ParamsNumeric_REF\n      - ParamsDouble_REF"
     },
     {
       "$type": "StandaloneComment",
@@ -2071,6 +2119,14 @@
     {
       "$type": "StandaloneComment",
       "comment": "@propset ParamsByte\n    write: plugin\n    props:\n      - ParamsCommon_REF\n      - ParamsAllButGroupPage_REF\n      - ParamsValue_REF\n      - ParamsNumeric_REF"
+    },
+    {
+      "$type": "StandaloneComment",
+      "comment": "@propset ParamsRGB\n    write: plugin\n    props:\n      - OfxParamPropColourManagement\n      - ParamsCommon_REF\n      - ParamsAllButGroupPage_REF\n      - ParamsValue_REF\n      - ParamsNumeric_REF"
+    },
+    {
+      "$type": "StandaloneComment",
+      "comment": "@propset ParamsRGBA\n    write: plugin\n    props:\n      - OfxParamPropColourManagement\n      - ParamsCommon_REF\n      - ParamsAllButGroupPage_REF\n      - ParamsValue_REF\n      - ParamsNumeric_REF"
     },
     {
       "$type": "StandaloneComment",

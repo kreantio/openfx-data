@@ -27,7 +27,7 @@
     },
     {
       "$type": "Item",
-      "comment_above": "@brief Action called after a dialog has requested a 'Dialog'\n         The arguments to the action are:\n          \\arg \\c user_data Pointer which was provided when the plugin requested the Dialog\n\n\t   When the plugin receives this action it is safe to popup a dialog.\n\t   It runs in the host's UI thread, which may differ from the main OFX processing thread.\n\t   Plugin should return from this action when all Dialog interactions are done.\n\t   At that point the host will continue again.\n\t   The host will not send any other messages asynchronous to this one.",
+      "comment_above": "@brief Action called after a dialog has requested a 'Dialog'\n         The arguments to the action are:\n          \\arg \\c user_data Pointer which was provided when the plugin requested the Dialog\n\n\t   When the plugin receives this action it is safe to popup a dialog.\n\t   It runs in the host's UI thread, which may differ from the main OFX processing thread.\n\t   Plugin should return from this action when all Dialog interactions are done.\n\t   At that point the host will continue again.\n\t   The host will not send any other messages asynchronous to this one.\n \n    @actiondef\n    inArgs:\n    outArgs:",
       "item": {
         "$type": "Define",
         "name": "kOfxActionDialog",
