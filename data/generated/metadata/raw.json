@@ -367,6 +367,25 @@
         "size": 1
       }
     },
+    "kOfxImageEffectPropBehaviourWhenUnlicensed": {
+      "type": {
+        "$type": "StringEnum",
+        "one_of": [
+          {
+            "$type": "Defined",
+            "cname": "kOfxUnlicensedContinue"
+          },
+          {
+            "$type": "Defined",
+            "cname": "kOfxUnlicensedFail"
+          }
+        ]
+      },
+      "dimension": {
+        "$type": "Fixed",
+        "size": 1
+      }
+    },
     "kOfxImageEffectPropCPURenderSupported": {
       "type": {
         "$type": "StringEnum",
@@ -1803,12 +1822,11 @@
       "type": {
         "$type": "Simple",
         "one_of": [
-          "bool"
+          "string"
         ]
       },
       "dimension": {
-        "$type": "Fixed",
-        "size": 1
+        "$type": "Dynamic"
       },
       "introduced": "1.5"
     },
@@ -1833,6 +1851,30 @@
       "dimension": {
         "$type": "Dynamic"
       }
+    },
+    "kOfxParamPropColourManagement": {
+      "type": {
+        "$type": "StringEnum",
+        "one_of": [
+          {
+            "$type": "Defined",
+            "cname": "kOfxParamColourManagementNone"
+          },
+          {
+            "$type": "Defined",
+            "cname": "kOfxParamColourManagementManaged"
+          },
+          {
+            "$type": "Defined",
+            "cname": "kOfxParamColourManagementSRGB"
+          }
+        ]
+      },
+      "dimension": {
+        "$type": "Fixed",
+        "size": 1
+      },
+      "introduced": "1.5.1"
     },
     "kOfxParamPropCustomInterpCallbackV1": {
       "type": {
@@ -1924,8 +1966,7 @@
         ]
       },
       "dimension": {
-        "$type": "Fixed",
-        "size": 1
+        "$type": "Dynamic"
       }
     },
     "kOfxParamPropDisplayMax": {
@@ -2914,19 +2955,23 @@
         "kOfxPropInstanceData": {}
       }
     },
-    "ParamDouble1D": {
-      "write": "plugin",
+    "OpenGLTexture": {
+      "write": "host",
       "props": {
-        "kOfxParamPropDoubleType": {},
-        "kOfxParamPropShowTimeMarker": {}
-      },
-      "props_refs": [
-        "ParamsAllButGroupPage",
-        "ParamsCommon",
-        "ParamsDouble",
-        "ParamsNumeric",
-        "ParamsValue"
-      ]
+        "kOfxImageEffectPropComponents": {},
+        "kOfxImageEffectPropOpenGLTextureIndex": {},
+        "kOfxImageEffectPropOpenGLTextureTarget": {},
+        "kOfxImageEffectPropPixelDepth": {},
+        "kOfxImageEffectPropPreMultiplication": {},
+        "kOfxImageEffectPropRenderScale": {},
+        "kOfxImagePropBounds": {},
+        "kOfxImagePropField": {},
+        "kOfxImagePropPixelAspectRatio": {},
+        "kOfxImagePropRegionOfDefinition": {},
+        "kOfxImagePropRowBytes": {},
+        "kOfxImagePropUniqueIdentifier": {},
+        "kOfxPropType": {}
+      }
     },
     "ParameterSet": {
       "write": "plugin",
@@ -2964,6 +3009,20 @@
       "props_refs": [
         "ParamsAllButGroupPage",
         "ParamsCommon",
+        "ParamsValue"
+      ]
+    },
+    "ParamsDouble1D": {
+      "write": "plugin",
+      "props": {
+        "kOfxParamPropDoubleType": {},
+        "kOfxParamPropShowTimeMarker": {}
+      },
+      "props_refs": [
+        "ParamsAllButGroupPage",
+        "ParamsCommon",
+        "ParamsDouble",
+        "ParamsNumeric",
         "ParamsValue"
       ]
     },
@@ -3042,6 +3101,30 @@
       "props_refs": [
         "ParamsAllButGroupPage",
         "ParamsCommon",
+        "ParamsValue"
+      ]
+    },
+    "ParamsRGB": {
+      "write": "plugin",
+      "props": {
+        "kOfxParamPropColourManagement": {}
+      },
+      "props_refs": [
+        "ParamsAllButGroupPage",
+        "ParamsCommon",
+        "ParamsNumeric",
+        "ParamsValue"
+      ]
+    },
+    "ParamsRGBA": {
+      "write": "plugin",
+      "props": {
+        "kOfxParamPropColourManagement": {}
+      },
+      "props_refs": [
+        "ParamsAllButGroupPage",
+        "ParamsCommon",
+        "ParamsNumeric",
         "ParamsValue"
       ]
     },
@@ -3137,11 +3220,12 @@
       "in_args": [
         "kOfxParamPropCustomValue",
         "kOfxParamPropInterpolationAmount",
-        "kOfxParamPropInterpolationTime"
+        "kOfxParamPropInterpolationTime",
+        "kOfxPropName",
+        "kOfxPropTime"
       ],
       "out_args": [
-        "kOfxParamPropCustomValue",
-        "kOfxParamPropInterpolationTime"
+        "kOfxParamPropCustomValue"
       ]
     },
     "kOfxActionBeginInstanceChanged": {
@@ -3154,6 +3238,7 @@
     "kOfxActionCreateInstance": {},
     "kOfxActionDescribe": {},
     "kOfxActionDestroyInstance": {},
+    "kOfxActionDialog": {},
     "kOfxActionEndInstanceChanged": {
       "in_args": [
         "kOfxPropChangeReason"
@@ -3171,11 +3256,14 @@
       ]
     },
     "kOfxActionLoad": {},
+    "kOfxActionOpenGLContextAttached": {},
+    "kOfxActionOpenGLContextDetached": {},
     "kOfxActionPurgeCaches": {},
     "kOfxActionSyncPrivateData": {},
     "kOfxActionUnload": {},
     "kOfxImageEffectActionBeginSequenceRender": {
       "in_args": [
+        "kOfxImageEffectPropBehaviourWhenUnlicensed",
         "kOfxImageEffectPropCudaEnabled",
         "kOfxImageEffectPropCudaRenderSupported",
         "kOfxImageEffectPropCudaStream",
@@ -3244,9 +3332,6 @@
       "in_args": [
         "kOfxImageEffectPropThumbnailRender",
         "kOfxPropTime"
-      ],
-      "out_args": [
-        "kOfxImageEffectPropFrameRange"
       ]
     },
     "kOfxImageEffectActionGetOutputColourspace": {
@@ -3287,14 +3372,20 @@
         "kOfxImageEffectPropRenderWindow",
         "kOfxImageEffectPropThumbnailRender",
         "kOfxPropTime"
+      ],
+      "out_args": [
+        "kOfxPropName",
+        "kOfxPropTime"
       ]
     },
     "kOfxImageEffectActionRender": {
       "in_args": [
+        "kOfxImageEffectPropBehaviourWhenUnlicensed",
         "kOfxImageEffectPropCudaEnabled",
         "kOfxImageEffectPropCudaRenderSupported",
         "kOfxImageEffectPropCudaStream",
         "kOfxImageEffectPropCudaStreamSupported",
+        "kOfxImageEffectPropFieldToRender",
         "kOfxImageEffectPropInteractiveRenderStatus",
         "kOfxImageEffectPropMetalCommandQueue",
         "kOfxImageEffectPropMetalEnabled",
@@ -3309,6 +3400,8 @@
         "kOfxImageEffectPropOpenGLTextureIndex",
         "kOfxImageEffectPropOpenGLTextureTarget",
         "kOfxImageEffectPropRenderQualityDraft",
+        "kOfxImageEffectPropRenderScale",
+        "kOfxImageEffectPropRenderWindow",
         "kOfxImageEffectPropSequentialRenderStatus",
         "kOfxImageEffectPropThumbnailRender",
         "kOfxPropTime"
