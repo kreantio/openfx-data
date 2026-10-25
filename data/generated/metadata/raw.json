@@ -252,7 +252,7 @@
       "type": {
         "$type": "Simple",
         "one_of": [
-          "bool"
+          "int"
         ]
       },
       "dimension": {
@@ -2773,6 +2773,7 @@
     "EffectDescriptor": {
       "write": "plugin",
       "props": {
+        "kOfxImageEffectInstancePropSequentialRender": {},
         "kOfxImageEffectPluginPropFieldRenderTwiceAlways": {},
         "kOfxImageEffectPluginPropGrouping": {},
         "kOfxImageEffectPluginPropHostFrameThreading": {},
@@ -2849,7 +2850,9 @@
         "kOfxImageEffectPropProjectPixelAspectRatio": {},
         "kOfxImageEffectPropProjectSize": {},
         "kOfxImageEffectPropSupportsTiles": {},
-        "kOfxPropInstanceData": {},
+        "kOfxPropInstanceData": {
+          "write": "all"
+        },
         "kOfxPropIsInteractive": {},
         "kOfxPropType": {}
       }
@@ -2949,10 +2952,14 @@
         "kOfxInteractPropBitDepth": {},
         "kOfxInteractPropHasAlpha": {},
         "kOfxInteractPropPixelScale": {},
-        "kOfxInteractPropSlaveToParam": {},
+        "kOfxInteractPropSlaveToParam": {
+          "write": "plugin"
+        },
         "kOfxInteractPropSuggestedColour": {},
         "kOfxPropEffectInstance": {},
-        "kOfxPropInstanceData": {}
+        "kOfxPropInstanceData": {
+          "write": "all"
+        }
       }
     },
     "OpenGLTexture": {
@@ -2980,12 +2987,19 @@
         "kOfxPropParamSetNeedsSyncing": {}
       }
     },
-    "ParamsByte": {
+    "ParamsBoolean": {
       "write": "plugin",
       "props_refs": [
         "ParamsAllButGroupPage",
         "ParamsCommon",
-        "ParamsNumeric",
+        "ParamsValue"
+      ]
+    },
+    "ParamsBytes": {
+      "write": "plugin",
+      "props_refs": [
+        "ParamsAllButGroupPage",
+        "ParamsCommon",
         "ParamsValue"
       ]
     },
@@ -3015,6 +3029,7 @@
     "ParamsDouble1D": {
       "write": "plugin",
       "props": {
+        "kOfxParamPropDefaultCoordinateSystem": {},
         "kOfxParamPropDoubleType": {},
         "kOfxParamPropShowTimeMarker": {}
       },
@@ -3029,6 +3044,8 @@
     "ParamsDouble2D3D": {
       "write": "plugin",
       "props": {
+        "kOfxParamPropDefaultCoordinateSystem": {},
+        "kOfxParamPropDimensionLabel": {},
         "kOfxParamPropDoubleType": {}
       },
       "props_refs": [
@@ -3048,6 +3065,15 @@
         "ParamsCommon"
       ]
     },
+    "ParamsInt1D": {
+      "write": "plugin",
+      "props_refs": [
+        "ParamsAllButGroupPage",
+        "ParamsCommon",
+        "ParamsNumeric",
+        "ParamsValue"
+      ]
+    },
     "ParamsInt2D3D": {
       "write": "plugin",
       "props": {
@@ -3056,19 +3082,6 @@
       "props_refs": [
         "ParamsAllButGroupPage",
         "ParamsCommon",
-        "ParamsNumeric",
-        "ParamsValue"
-      ]
-    },
-    "ParamsNormalizedSpatial": {
-      "write": "plugin",
-      "props": {
-        "kOfxParamPropDefaultCoordinateSystem": {}
-      },
-      "props_refs": [
-        "ParamsAllButGroupPage",
-        "ParamsCommon",
-        "ParamsDouble",
         "ParamsNumeric",
         "ParamsValue"
       ]
@@ -3102,6 +3115,13 @@
         "ParamsAllButGroupPage",
         "ParamsCommon",
         "ParamsValue"
+      ]
+    },
+    "ParamsPushButton": {
+      "write": "plugin",
+      "props_refs": [
+        "ParamsAllButGroupPage",
+        "ParamsCommon"
       ]
     },
     "ParamsRGB": {
@@ -3149,7 +3169,6 @@
       "props_refs": [
         "ParamsAllButGroupPage",
         "ParamsCommon",
-        "ParamsNumeric",
         "ParamsValue"
       ]
     }
@@ -3157,7 +3176,9 @@
   "propsetdef_map": {
     "ParamsAllButGroupPage": {
       "props": {
-        "kOfxParamPropHasHostOverlayHandle": {},
+        "kOfxParamPropHasHostOverlayHandle": {
+          "write": "host"
+        },
         "kOfxParamPropInteractMinimumSize": {},
         "kOfxParamPropInteractPreferedSize": {},
         "kOfxParamPropInteractSize": {},
@@ -3217,22 +3238,24 @@
   },
   "actiondef_map": {
     "CustomParamInterpFunc": {
-      "in_args": [
-        "kOfxParamPropCustomValue",
-        "kOfxParamPropInterpolationAmount",
-        "kOfxParamPropInterpolationTime",
-        "kOfxPropName",
-        "kOfxPropTime"
-      ],
-      "out_args": [
-        "kOfxParamPropCustomValue"
-      ]
+      "in_args": {
+        "kOfxParamPropCustomValue": {},
+        "kOfxParamPropInterpolationAmount": {},
+        "kOfxParamPropInterpolationTime": {},
+        "kOfxPropName": {},
+        "kOfxPropTime": {}
+      },
+      "out_args": {
+        "kOfxParamPropCustomValue": {}
+      }
     },
     "kOfxActionBeginInstanceChanged": {
-      "in_args": [
-        "kOfxImageEffectPropThumbnailRender",
-        "kOfxPropChangeReason"
-      ]
+      "in_args": {
+        "kOfxImageEffectPropThumbnailRender": {
+          "host_optional": true
+        },
+        "kOfxPropChangeReason": {}
+      }
     },
     "kOfxActionBeginInstanceEdit": {},
     "kOfxActionCreateInstance": {},
@@ -3240,20 +3263,22 @@
     "kOfxActionDestroyInstance": {},
     "kOfxActionDialog": {},
     "kOfxActionEndInstanceChanged": {
-      "in_args": [
-        "kOfxPropChangeReason"
-      ]
+      "in_args": {
+        "kOfxPropChangeReason": {}
+      }
     },
     "kOfxActionEndInstanceEdit": {},
     "kOfxActionInstanceChanged": {
-      "in_args": [
-        "kOfxImageEffectPropRenderScale",
-        "kOfxImageEffectPropThumbnailRender",
-        "kOfxPropChangeReason",
-        "kOfxPropName",
-        "kOfxPropTime",
-        "kOfxPropType"
-      ]
+      "in_args": {
+        "kOfxImageEffectPropRenderScale": {},
+        "kOfxImageEffectPropThumbnailRender": {
+          "host_optional": true
+        },
+        "kOfxPropChangeReason": {},
+        "kOfxPropName": {},
+        "kOfxPropTime": {},
+        "kOfxPropType": {}
+      }
     },
     "kOfxActionLoad": {},
     "kOfxActionOpenGLContextAttached": {},
@@ -3262,241 +3287,353 @@
     "kOfxActionSyncPrivateData": {},
     "kOfxActionUnload": {},
     "kOfxImageEffectActionBeginSequenceRender": {
-      "in_args": [
-        "kOfxImageEffectPropBehaviourWhenUnlicensed",
-        "kOfxImageEffectPropCudaEnabled",
-        "kOfxImageEffectPropCudaRenderSupported",
-        "kOfxImageEffectPropCudaStream",
-        "kOfxImageEffectPropCudaStreamSupported",
-        "kOfxImageEffectPropFrameRange",
-        "kOfxImageEffectPropFrameStep",
-        "kOfxImageEffectPropInteractiveRenderStatus",
-        "kOfxImageEffectPropMetalCommandQueue",
-        "kOfxImageEffectPropMetalEnabled",
-        "kOfxImageEffectPropMetalRenderSupported",
-        "kOfxImageEffectPropNoSpatialAwareness",
-        "kOfxImageEffectPropOpenCLCommandQueue",
-        "kOfxImageEffectPropOpenCLEnabled",
-        "kOfxImageEffectPropOpenCLImage",
-        "kOfxImageEffectPropOpenCLRenderSupported",
-        "kOfxImageEffectPropOpenCLSupported",
-        "kOfxImageEffectPropOpenGLEnabled",
-        "kOfxImageEffectPropOpenGLTextureIndex",
-        "kOfxImageEffectPropOpenGLTextureTarget",
-        "kOfxImageEffectPropRenderScale",
-        "kOfxImageEffectPropSequentialRenderStatus",
-        "kOfxImageEffectPropThumbnailRender",
-        "kOfxPropIsInteractive"
-      ]
+      "in_args": {
+        "kOfxImageEffectPropBehaviourWhenUnlicensed": {
+          "host_optional": true
+        },
+        "kOfxImageEffectPropCudaEnabled": {
+          "host_optional": true
+        },
+        "kOfxImageEffectPropCudaRenderSupported": {
+          "host_optional": true
+        },
+        "kOfxImageEffectPropCudaStream": {
+          "host_optional": true
+        },
+        "kOfxImageEffectPropCudaStreamSupported": {
+          "host_optional": true
+        },
+        "kOfxImageEffectPropFrameRange": {},
+        "kOfxImageEffectPropFrameStep": {},
+        "kOfxImageEffectPropInteractiveRenderStatus": {},
+        "kOfxImageEffectPropMetalCommandQueue": {
+          "host_optional": true
+        },
+        "kOfxImageEffectPropMetalEnabled": {
+          "host_optional": true
+        },
+        "kOfxImageEffectPropMetalRenderSupported": {
+          "host_optional": true
+        },
+        "kOfxImageEffectPropNoSpatialAwareness": {
+          "host_optional": true
+        },
+        "kOfxImageEffectPropOpenCLCommandQueue": {
+          "host_optional": true
+        },
+        "kOfxImageEffectPropOpenCLEnabled": {
+          "host_optional": true
+        },
+        "kOfxImageEffectPropOpenCLImage": {
+          "host_optional": true
+        },
+        "kOfxImageEffectPropOpenCLRenderSupported": {
+          "host_optional": true
+        },
+        "kOfxImageEffectPropOpenCLSupported": {
+          "host_optional": true
+        },
+        "kOfxImageEffectPropOpenGLEnabled": {
+          "host_optional": true
+        },
+        "kOfxImageEffectPropOpenGLTextureIndex": {
+          "host_optional": true
+        },
+        "kOfxImageEffectPropOpenGLTextureTarget": {
+          "host_optional": true
+        },
+        "kOfxImageEffectPropRenderScale": {},
+        "kOfxImageEffectPropSequentialRenderStatus": {},
+        "kOfxImageEffectPropThumbnailRender": {
+          "host_optional": true
+        },
+        "kOfxPropIsInteractive": {}
+      }
     },
     "kOfxImageEffectActionDescribeInContext": {
-      "in_args": [
-        "kOfxImageEffectPropContext"
-      ]
+      "in_args": {
+        "kOfxImageEffectPropContext": {}
+      }
     },
     "kOfxImageEffectActionEndSequenceRender": {
-      "in_args": [
-        "kOfxImageEffectPropCudaEnabled",
-        "kOfxImageEffectPropCudaRenderSupported",
-        "kOfxImageEffectPropCudaStream",
-        "kOfxImageEffectPropCudaStreamSupported",
-        "kOfxImageEffectPropFrameRange",
-        "kOfxImageEffectPropFrameStep",
-        "kOfxImageEffectPropInteractiveRenderStatus",
-        "kOfxImageEffectPropMetalCommandQueue",
-        "kOfxImageEffectPropMetalEnabled",
-        "kOfxImageEffectPropMetalRenderSupported",
-        "kOfxImageEffectPropOpenCLCommandQueue",
-        "kOfxImageEffectPropOpenCLEnabled",
-        "kOfxImageEffectPropOpenCLImage",
-        "kOfxImageEffectPropOpenCLRenderSupported",
-        "kOfxImageEffectPropOpenCLSupported",
-        "kOfxImageEffectPropOpenGLEnabled",
-        "kOfxImageEffectPropOpenGLTextureIndex",
-        "kOfxImageEffectPropOpenGLTextureTarget",
-        "kOfxImageEffectPropRenderScale",
-        "kOfxImageEffectPropSequentialRenderStatus",
-        "kOfxPropIsInteractive"
-      ]
+      "in_args": {
+        "kOfxImageEffectPropCudaEnabled": {
+          "host_optional": true
+        },
+        "kOfxImageEffectPropCudaRenderSupported": {
+          "host_optional": true
+        },
+        "kOfxImageEffectPropCudaStream": {
+          "host_optional": true
+        },
+        "kOfxImageEffectPropCudaStreamSupported": {
+          "host_optional": true
+        },
+        "kOfxImageEffectPropFrameRange": {},
+        "kOfxImageEffectPropFrameStep": {},
+        "kOfxImageEffectPropInteractiveRenderStatus": {},
+        "kOfxImageEffectPropMetalCommandQueue": {
+          "host_optional": true
+        },
+        "kOfxImageEffectPropMetalEnabled": {
+          "host_optional": true
+        },
+        "kOfxImageEffectPropMetalRenderSupported": {
+          "host_optional": true
+        },
+        "kOfxImageEffectPropOpenCLCommandQueue": {
+          "host_optional": true
+        },
+        "kOfxImageEffectPropOpenCLEnabled": {
+          "host_optional": true
+        },
+        "kOfxImageEffectPropOpenCLImage": {
+          "host_optional": true
+        },
+        "kOfxImageEffectPropOpenCLRenderSupported": {
+          "host_optional": true
+        },
+        "kOfxImageEffectPropOpenCLSupported": {
+          "host_optional": true
+        },
+        "kOfxImageEffectPropOpenGLEnabled": {
+          "host_optional": true
+        },
+        "kOfxImageEffectPropOpenGLTextureIndex": {
+          "host_optional": true
+        },
+        "kOfxImageEffectPropOpenGLTextureTarget": {
+          "host_optional": true
+        },
+        "kOfxImageEffectPropRenderScale": {},
+        "kOfxImageEffectPropSequentialRenderStatus": {},
+        "kOfxPropIsInteractive": {}
+      }
     },
     "kOfxImageEffectActionGetClipPreferences": {
-      "out_args": [
-        "kOfxImageClipPropContinuousSamples",
-        "kOfxImageClipPropFieldOrder",
-        "kOfxImageEffectFrameVarying",
-        "kOfxImageEffectPropFrameRate",
-        "kOfxImageEffectPropPreMultiplication"
-      ]
+      "out_args": {
+        "kOfxImageClipPropContinuousSamples": {},
+        "kOfxImageClipPropFieldOrder": {},
+        "kOfxImageEffectFrameVarying": {},
+        "kOfxImageEffectPropFrameRate": {},
+        "kOfxImageEffectPropPreMultiplication": {}
+      }
     },
     "kOfxImageEffectActionGetFramesNeeded": {
-      "in_args": [
-        "kOfxImageEffectPropThumbnailRender",
-        "kOfxPropTime"
-      ]
+      "in_args": {
+        "kOfxImageEffectPropThumbnailRender": {
+          "host_optional": true
+        },
+        "kOfxPropTime": {}
+      }
     },
     "kOfxImageEffectActionGetOutputColourspace": {
-      "in_args": [
-        "kOfxImageClipPropPreferredColourspaces"
-      ],
-      "out_args": [
-        "kOfxImageClipPropColourspace"
-      ]
+      "in_args": {
+        "kOfxImageClipPropPreferredColourspaces": {}
+      },
+      "out_args": {
+        "kOfxImageClipPropColourspace": {}
+      }
     },
     "kOfxImageEffectActionGetRegionOfDefinition": {
-      "in_args": [
-        "kOfxImageEffectPropRenderScale",
-        "kOfxImageEffectPropThumbnailRender",
-        "kOfxPropTime"
-      ],
-      "out_args": [
-        "kOfxImageEffectPropRegionOfDefinition"
-      ]
+      "in_args": {
+        "kOfxImageEffectPropRenderScale": {},
+        "kOfxImageEffectPropThumbnailRender": {
+          "host_optional": true
+        },
+        "kOfxPropTime": {}
+      },
+      "out_args": {
+        "kOfxImageEffectPropRegionOfDefinition": {}
+      }
     },
     "kOfxImageEffectActionGetRegionsOfInterest": {
-      "in_args": [
-        "kOfxImageEffectPropRegionOfInterest",
-        "kOfxImageEffectPropRenderScale",
-        "kOfxImageEffectPropThumbnailRender",
-        "kOfxPropTime"
-      ]
+      "in_args": {
+        "kOfxImageEffectPropRegionOfInterest": {},
+        "kOfxImageEffectPropRenderScale": {},
+        "kOfxImageEffectPropThumbnailRender": {
+          "host_optional": true
+        },
+        "kOfxPropTime": {}
+      }
     },
     "kOfxImageEffectActionGetTimeDomain": {
-      "out_args": [
-        "kOfxImageEffectPropFrameRange"
-      ]
+      "out_args": {
+        "kOfxImageEffectPropFrameRange": {}
+      }
     },
     "kOfxImageEffectActionIsIdentity": {
-      "in_args": [
-        "kOfxImageEffectPropFieldToRender",
-        "kOfxImageEffectPropRenderScale",
-        "kOfxImageEffectPropRenderWindow",
-        "kOfxImageEffectPropThumbnailRender",
-        "kOfxPropTime"
-      ],
-      "out_args": [
-        "kOfxPropName",
-        "kOfxPropTime"
-      ]
+      "in_args": {
+        "kOfxImageEffectPropFieldToRender": {},
+        "kOfxImageEffectPropRenderScale": {},
+        "kOfxImageEffectPropRenderWindow": {},
+        "kOfxImageEffectPropThumbnailRender": {
+          "host_optional": true
+        },
+        "kOfxPropTime": {}
+      },
+      "out_args": {
+        "kOfxPropName": {},
+        "kOfxPropTime": {}
+      }
     },
     "kOfxImageEffectActionRender": {
-      "in_args": [
-        "kOfxImageEffectPropBehaviourWhenUnlicensed",
-        "kOfxImageEffectPropCudaEnabled",
-        "kOfxImageEffectPropCudaRenderSupported",
-        "kOfxImageEffectPropCudaStream",
-        "kOfxImageEffectPropCudaStreamSupported",
-        "kOfxImageEffectPropFieldToRender",
-        "kOfxImageEffectPropInteractiveRenderStatus",
-        "kOfxImageEffectPropMetalCommandQueue",
-        "kOfxImageEffectPropMetalEnabled",
-        "kOfxImageEffectPropMetalRenderSupported",
-        "kOfxImageEffectPropNoSpatialAwareness",
-        "kOfxImageEffectPropOpenCLCommandQueue",
-        "kOfxImageEffectPropOpenCLEnabled",
-        "kOfxImageEffectPropOpenCLImage",
-        "kOfxImageEffectPropOpenCLRenderSupported",
-        "kOfxImageEffectPropOpenCLSupported",
-        "kOfxImageEffectPropOpenGLEnabled",
-        "kOfxImageEffectPropOpenGLTextureIndex",
-        "kOfxImageEffectPropOpenGLTextureTarget",
-        "kOfxImageEffectPropRenderQualityDraft",
-        "kOfxImageEffectPropRenderScale",
-        "kOfxImageEffectPropRenderWindow",
-        "kOfxImageEffectPropSequentialRenderStatus",
-        "kOfxImageEffectPropThumbnailRender",
-        "kOfxPropTime"
-      ]
+      "in_args": {
+        "kOfxImageEffectPropBehaviourWhenUnlicensed": {
+          "host_optional": true
+        },
+        "kOfxImageEffectPropCudaEnabled": {
+          "host_optional": true
+        },
+        "kOfxImageEffectPropCudaRenderSupported": {
+          "host_optional": true
+        },
+        "kOfxImageEffectPropCudaStream": {
+          "host_optional": true
+        },
+        "kOfxImageEffectPropCudaStreamSupported": {
+          "host_optional": true
+        },
+        "kOfxImageEffectPropFieldToRender": {},
+        "kOfxImageEffectPropInteractiveRenderStatus": {},
+        "kOfxImageEffectPropMetalCommandQueue": {
+          "host_optional": true
+        },
+        "kOfxImageEffectPropMetalEnabled": {
+          "host_optional": true
+        },
+        "kOfxImageEffectPropMetalRenderSupported": {
+          "host_optional": true
+        },
+        "kOfxImageEffectPropNoSpatialAwareness": {
+          "host_optional": true
+        },
+        "kOfxImageEffectPropOpenCLCommandQueue": {
+          "host_optional": true
+        },
+        "kOfxImageEffectPropOpenCLEnabled": {
+          "host_optional": true
+        },
+        "kOfxImageEffectPropOpenCLImage": {
+          "host_optional": true
+        },
+        "kOfxImageEffectPropOpenCLRenderSupported": {
+          "host_optional": true
+        },
+        "kOfxImageEffectPropOpenCLSupported": {
+          "host_optional": true
+        },
+        "kOfxImageEffectPropOpenGLEnabled": {
+          "host_optional": true
+        },
+        "kOfxImageEffectPropOpenGLTextureIndex": {
+          "host_optional": true
+        },
+        "kOfxImageEffectPropOpenGLTextureTarget": {
+          "host_optional": true
+        },
+        "kOfxImageEffectPropRenderQualityDraft": {
+          "host_optional": true
+        },
+        "kOfxImageEffectPropRenderScale": {},
+        "kOfxImageEffectPropRenderWindow": {},
+        "kOfxImageEffectPropSequentialRenderStatus": {},
+        "kOfxImageEffectPropThumbnailRender": {
+          "host_optional": true
+        },
+        "kOfxPropTime": {}
+      }
     },
     "kOfxInteractActionDraw": {
-      "in_args": [
-        "kOfxImageEffectPropRenderScale",
-        "kOfxInteractPropBackgroundColour",
-        "kOfxInteractPropDrawContext",
-        "kOfxInteractPropPixelScale",
-        "kOfxPropEffectInstance",
-        "kOfxPropTime"
-      ]
+      "in_args": {
+        "kOfxImageEffectPropRenderScale": {},
+        "kOfxInteractPropBackgroundColour": {},
+        "kOfxInteractPropDrawContext": {},
+        "kOfxInteractPropPixelScale": {},
+        "kOfxPropEffectInstance": {},
+        "kOfxPropTime": {}
+      }
     },
     "kOfxInteractActionGainFocus": {
-      "in_args": [
-        "kOfxImageEffectPropRenderScale",
-        "kOfxInteractPropBackgroundColour",
-        "kOfxInteractPropPixelScale",
-        "kOfxPropEffectInstance",
-        "kOfxPropTime"
-      ]
+      "in_args": {
+        "kOfxImageEffectPropRenderScale": {},
+        "kOfxInteractPropBackgroundColour": {},
+        "kOfxInteractPropPixelScale": {},
+        "kOfxPropEffectInstance": {},
+        "kOfxPropTime": {}
+      }
     },
     "kOfxInteractActionKeyDown": {
-      "in_args": [
-        "kOfxImageEffectPropRenderScale",
-        "kOfxPropEffectInstance",
-        "kOfxPropKeyString",
-        "kOfxPropKeySym",
-        "kOfxPropTime"
-      ]
+      "in_args": {
+        "kOfxImageEffectPropRenderScale": {},
+        "kOfxPropEffectInstance": {},
+        "kOfxPropKeyString": {},
+        "kOfxPropKeySym": {},
+        "kOfxPropTime": {}
+      }
     },
     "kOfxInteractActionKeyRepeat": {
-      "in_args": [
-        "kOfxImageEffectPropRenderScale",
-        "kOfxPropEffectInstance",
-        "kOfxPropKeyString",
-        "kOfxPropKeySym",
-        "kOfxPropTime"
-      ]
+      "in_args": {
+        "kOfxImageEffectPropRenderScale": {},
+        "kOfxPropEffectInstance": {},
+        "kOfxPropKeyString": {},
+        "kOfxPropKeySym": {},
+        "kOfxPropTime": {}
+      }
     },
     "kOfxInteractActionKeyUp": {
-      "in_args": [
-        "kOfxImageEffectPropRenderScale",
-        "kOfxPropEffectInstance",
-        "kOfxPropKeyString",
-        "kOfxPropKeySym",
-        "kOfxPropTime"
-      ]
+      "in_args": {
+        "kOfxImageEffectPropRenderScale": {},
+        "kOfxPropEffectInstance": {},
+        "kOfxPropKeyString": {},
+        "kOfxPropKeySym": {},
+        "kOfxPropTime": {}
+      }
     },
     "kOfxInteractActionLoseFocus": {
-      "in_args": [
-        "kOfxImageEffectPropRenderScale",
-        "kOfxInteractPropBackgroundColour",
-        "kOfxInteractPropPixelScale",
-        "kOfxPropEffectInstance",
-        "kOfxPropTime"
-      ]
+      "in_args": {
+        "kOfxImageEffectPropRenderScale": {},
+        "kOfxInteractPropBackgroundColour": {},
+        "kOfxInteractPropPixelScale": {},
+        "kOfxPropEffectInstance": {},
+        "kOfxPropTime": {}
+      }
     },
     "kOfxInteractActionPenDown": {
-      "in_args": [
-        "kOfxImageEffectPropRenderScale",
-        "kOfxInteractPropBackgroundColour",
-        "kOfxInteractPropPenPosition",
-        "kOfxInteractPropPenPressure",
-        "kOfxInteractPropPenViewportPosition",
-        "kOfxInteractPropPixelScale",
-        "kOfxPropEffectInstance",
-        "kOfxPropTime"
-      ]
+      "in_args": {
+        "kOfxImageEffectPropRenderScale": {},
+        "kOfxInteractPropBackgroundColour": {},
+        "kOfxInteractPropPenPosition": {},
+        "kOfxInteractPropPenPressure": {},
+        "kOfxInteractPropPenViewportPosition": {},
+        "kOfxInteractPropPixelScale": {},
+        "kOfxPropEffectInstance": {},
+        "kOfxPropTime": {}
+      }
     },
     "kOfxInteractActionPenMotion": {
-      "in_args": [
-        "kOfxImageEffectPropRenderScale",
-        "kOfxInteractPropBackgroundColour",
-        "kOfxInteractPropPenPosition",
-        "kOfxInteractPropPenPressure",
-        "kOfxInteractPropPenViewportPosition",
-        "kOfxInteractPropPixelScale",
-        "kOfxPropEffectInstance",
-        "kOfxPropTime"
-      ]
+      "in_args": {
+        "kOfxImageEffectPropRenderScale": {},
+        "kOfxInteractPropBackgroundColour": {},
+        "kOfxInteractPropPenPosition": {},
+        "kOfxInteractPropPenPressure": {},
+        "kOfxInteractPropPenViewportPosition": {},
+        "kOfxInteractPropPixelScale": {},
+        "kOfxPropEffectInstance": {},
+        "kOfxPropTime": {}
+      }
     },
     "kOfxInteractActionPenUp": {
-      "in_args": [
-        "kOfxImageEffectPropRenderScale",
-        "kOfxInteractPropBackgroundColour",
-        "kOfxInteractPropPenPosition",
-        "kOfxInteractPropPenPressure",
-        "kOfxInteractPropPenViewportPosition",
-        "kOfxInteractPropPixelScale",
-        "kOfxPropEffectInstance",
-        "kOfxPropTime"
-      ]
+      "in_args": {
+        "kOfxImageEffectPropRenderScale": {},
+        "kOfxInteractPropBackgroundColour": {},
+        "kOfxInteractPropPenPosition": {},
+        "kOfxInteractPropPenPressure": {},
+        "kOfxInteractPropPenViewportPosition": {},
+        "kOfxInteractPropPixelScale": {},
+        "kOfxPropEffectInstance": {},
+        "kOfxPropTime": {}
+      }
     }
   }
 }

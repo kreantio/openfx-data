@@ -2078,7 +2078,7 @@
     },
     {
       "$type": "StandaloneComment",
-      "comment": "@propsetdef ParamsAllButGroupPage\n    - OfxParamPropInteractV1\n    - OfxParamPropInteractSize\n    - OfxParamPropInteractSizeAspect\n    - OfxParamPropInteractMinimumSize\n    - OfxParamPropInteractPreferedSize\n    - OfxParamPropHasHostOverlayHandle\n    - kOfxParamPropUseHostOverlayHandle"
+      "comment": "@propsetdef ParamsAllButGroupPage\n    - OfxParamPropInteractV1\n    - OfxParamPropInteractSize\n    - OfxParamPropInteractSizeAspect\n    - OfxParamPropInteractMinimumSize\n    - OfxParamPropInteractPreferedSize\n    - OfxParamPropHasHostOverlayHandle | write=host\n    - kOfxParamPropUseHostOverlayHandle"
     },
     {
       "$type": "StandaloneComment",
@@ -2098,15 +2098,15 @@
     },
     {
       "$type": "StandaloneComment",
-      "comment": "@propset ParamsDouble1D\n    write: plugin\n    props:\n      - OfxParamPropShowTimeMarker\n      - OfxParamPropDoubleType\n      - ParamsCommon_REF\n      - ParamsAllButGroupPage_REF\n      - ParamsValue_REF\n      - ParamsNumeric_REF\n      - ParamsDouble_REF"
+      "comment": "@propset ParamsDouble1D\n    write: plugin\n    props:\n      - OfxParamPropShowTimeMarker\n      - OfxParamPropDoubleType\n      - OfxParamPropDefaultCoordinateSystem\n      - ParamsCommon_REF\n      - ParamsAllButGroupPage_REF\n      - ParamsValue_REF\n      - ParamsNumeric_REF\n      - ParamsDouble_REF"
     },
     {
       "$type": "StandaloneComment",
-      "comment": "@propset ParamsDouble2D3D\n    write: plugin\n    props:\n      - OfxParamPropDoubleType\n      - ParamsCommon_REF\n      - ParamsAllButGroupPage_REF\n      - ParamsValue_REF\n      - ParamsNumeric_REF\n      - ParamsDouble_REF"
+      "comment": "@propset ParamsDouble2D3D\n    write: plugin\n    props:\n      - OfxParamPropDoubleType\n      - OfxParamPropDefaultCoordinateSystem\n      - OfxParamPropDimensionLabel\n      - ParamsCommon_REF\n      - ParamsAllButGroupPage_REF\n      - ParamsValue_REF\n      - ParamsNumeric_REF\n      - ParamsDouble_REF"
     },
     {
       "$type": "StandaloneComment",
-      "comment": "@propset ParamsNormalizedSpatial\n    write: plugin\n    props:\n      - OfxParamPropDefaultCoordinateSystem\n      - ParamsCommon_REF\n      - ParamsAllButGroupPage_REF\n      - ParamsValue_REF\n      - ParamsNumeric_REF\n      - ParamsDouble_REF"
+      "comment": "@propset ParamsInt1D\n    write: plugin\n    props:\n      - ParamsCommon_REF\n      - ParamsAllButGroupPage_REF\n      - ParamsValue_REF\n      - ParamsNumeric_REF"
     },
     {
       "$type": "StandaloneComment",
@@ -2114,11 +2114,15 @@
     },
     {
       "$type": "StandaloneComment",
-      "comment": "@propset ParamsString\n    write: plugin\n    props:\n      - OfxParamPropStringMode\n      - OfxParamPropStringFilePathExists\n      - ParamsCommon_REF\n      - ParamsAllButGroupPage_REF\n      - ParamsValue_REF\n      - ParamsNumeric_REF"
+      "comment": "@propset ParamsBoolean\n    write: plugin\n    props:\n      - ParamsCommon_REF\n      - ParamsAllButGroupPage_REF\n      - ParamsValue_REF"
     },
     {
       "$type": "StandaloneComment",
-      "comment": "@propset ParamsByte\n    write: plugin\n    props:\n      - ParamsCommon_REF\n      - ParamsAllButGroupPage_REF\n      - ParamsValue_REF\n      - ParamsNumeric_REF"
+      "comment": "@propset ParamsString\n    write: plugin\n    props:\n      - OfxParamPropStringMode\n      - OfxParamPropStringFilePathExists\n      - ParamsCommon_REF\n      - ParamsAllButGroupPage_REF\n      - ParamsValue_REF"
+    },
+    {
+      "$type": "StandaloneComment",
+      "comment": "@propset ParamsBytes\n    write: plugin\n    props:\n      - ParamsCommon_REF\n      - ParamsAllButGroupPage_REF\n      - ParamsValue_REF"
     },
     {
       "$type": "StandaloneComment",
@@ -2143,6 +2147,10 @@
     {
       "$type": "StandaloneComment",
       "comment": "@propset ParamsPage\n    write: plugin\n    props:\n      - OfxParamPropPageChild\n      - ParamsCommon_REF"
+    },
+    {
+      "$type": "StandaloneComment",
+      "comment": "@propset ParamsPushButton\n    write: plugin\n    props:\n      - ParamsCommon_REF\n      - ParamsAllButGroupPage_REF"
     },
     {
       "$type": "StandaloneComment",
