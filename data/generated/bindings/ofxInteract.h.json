@@ -404,7 +404,7 @@
     },
     {
       "$type": "StandaloneComment",
-      "comment": "@propset InteractInstance\n    write: host\n    props:\n      - OfxPropEffectInstance\n      - OfxPropInstanceData\n      - OfxInteractPropPixelScale\n      - OfxInteractPropBackgroundColour\n      - OfxInteractPropHasAlpha\n      - OfxInteractPropBitDepth\n      - OfxInteractPropSlaveToParam\n      - OfxInteractPropSuggestedColour"
+      "comment": "@propset InteractInstance\n    write: host\n    props:\n      - OfxPropEffectInstance\n      - OfxPropInstanceData | write=all\n      - OfxInteractPropPixelScale\n      - OfxInteractPropBackgroundColour\n      - OfxInteractPropHasAlpha\n      - OfxInteractPropBitDepth\n      - OfxInteractPropSlaveToParam | write=plugin\n      - OfxInteractPropSuggestedColour"
     }
   ]
 }
